@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="90dp"
+    android:layout_marginBottom="12dp"
+    android:background="#F8FAFF">
+
+
+    <ImageView
+        android:id="@+id/iv_qr"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:layout_marginStart="16dp"
+        android:background="@color/white"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <TextView
+        android:id="@+id/tv_type_name"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="6dp"
+        android:layout_marginEnd="10dp"
+        android:ellipsize="end"
+        android:lines="1"
+        android:textColor="#2A2A2A"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@id/tv_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/iv_qr"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_chainStyle="packed"
+        tools:text="Code 39" />
+
+    <TextView
+        android:id="@+id/tv_content"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="6dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="6dp"
+        android:ellipsize="end"
+        android:lines="1"
+        android:textColor="#9D9D9D"
+        android:textSize="13sp"
+        app:layout_constraintBottom_toTopOf="@id/tv_des"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@id/tv_type_name"
+        app:layout_constraintTop_toBottomOf="@id/tv_type_name"
+        tools:text="240811964426511" />
+
+    <TextView
+        android:id="@+id/tv_des"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="10dp"
+        android:ellipsize="end"
+        android:lines="1"
+        android:textColor="#D5D5D5"
+        android:textSize="12sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@id/tv_type_name"
+        app:layout_constraintTop_toBottomOf="@id/tv_content"
+        tools:text="2025/04/16·9:58·Barcode" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
