@@ -5,6 +5,8 @@ import com.szr.co.smart.qr.model.QRCodeType
 
 object QrResLogic {
 
+    val listBgImages = arrayListOf<Int>(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15)
+
     fun getResById(id: Int): Int {
         return when (id) {
             1 -> R.drawable.ic_qr_bg1

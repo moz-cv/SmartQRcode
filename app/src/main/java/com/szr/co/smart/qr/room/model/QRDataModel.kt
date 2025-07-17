@@ -13,6 +13,7 @@ data class QRDataModel(
     @PrimaryKey(autoGenerate = true) @ColumnInfo(name = "id") var id: Int = 0,
     @ColumnInfo(name = "content") var content: String = "",
     @ColumnInfo(name = "type") var type: Int = -1,
+    @ColumnInfo(name = "bg_id") var bgId: Int = -1,
     @ColumnInfo(name = "source") var source: Int = 0,
     @ColumnInfo(name = "add_time") var addTime: Long
 ): Parcelable

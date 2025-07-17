@@ -1,6 +1,7 @@
 package com.szr.co.smart.qr.utils
 
 import android.util.Patterns
+import java.net.URL
 
 object ValidateUtils {
     /**
@@ -23,8 +24,17 @@ object ValidateUtils {
      * 网址校验，支持http(s)://或www.开头
      */
     fun isValidWebsite(url: String): Boolean {
-        val lower = url.lowercase()
-        return (lower.startsWith("http://") || lower.startsWith("https://") || lower.startsWith("www."))
-                && Patterns.WEB_URL.matcher(url).matches()
+//        val lower = url.lowercase()
+//        return (lower.startsWith("http://") || lower.startsWith("https://") || lower.startsWith("www."))
+//                && Patterns.WEB_URL.matcher(url).matches()
+
+        try {
+            URL(url)
+            return true
+        } catch (_: Exception) {
+        }
+        return false
     }
+
+
 } 

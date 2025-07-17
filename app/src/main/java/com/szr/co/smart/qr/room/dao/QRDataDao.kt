@@ -2,6 +2,7 @@ package com.szr.co.smart.qr.room.dao
 
 import androidx.paging.PagingSource
 import androidx.room.Dao
+import androidx.room.Delete
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
@@ -18,4 +19,7 @@ interface QRDataDao {
 
     @Query("SELECT * FROM qr_data WHERE source = 1 ORDER BY add_time DESC")
     fun genQRData(): PagingSource<Int, QRDataModel>
+
+    @Delete
+    suspend fun deleteList(users: List<QRDataModel>): Int
 }

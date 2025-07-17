@@ -76,4 +76,5 @@ dependencies {
     // optional - Paging 3 Integration
     implementation("androidx.room:room-paging:2.7.2")
     implementation("androidx.paging:paging-runtime:3.3.6")
+    implementation("com.github.lihangleo2:ShadowLayout:3.4.1")
 }

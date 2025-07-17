@@ -12,5 +12,6 @@ class LanguageActivity : BaseActivity<ActivityLanguageBinding>() {
 
     override fun initOnCreate() {
         super.initOnCreate()
+        mBinding.ivNavBack.setOnClickListener { onAppBackPage() }
     }
 }

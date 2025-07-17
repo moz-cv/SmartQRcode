@@ -1,5 +1,7 @@
 package com.szr.co.smart.qr.activity
 
+import android.content.Context
+import android.content.Intent
 import androidx.recyclerview.widget.GridLayoutManager
 import com.szr.co.smart.qr.R
 import com.szr.co.smart.qr.activity.base.BaseActivity
@@ -12,6 +14,14 @@ import com.szr.co.smart.qr.view.ItemGridDecoration
 
 class GenBarCodeActivity : BaseActivity<ActivityGenBarCodeBinding>() {
 
+
+    companion object {
+        fun toGenType(context: Context, bgId: Int = -1) {
+            val intent = Intent(context, GenBarCodeActivity::class.java)
+            intent.putExtra("bg_id", bgId)
+            context.startActivity(intent)
+        }
+    }
 
     private val typeList = arrayListOf<BarCodeTypeModel>(
         BarCodeTypeModel(QRCodeType.BARCODE_ITF, R.string.barcode_itf),
@@ -33,11 +43,14 @@ class GenBarCodeActivity : BaseActivity<ActivityGenBarCodeBinding>() {
 
     override fun initOnCreate() {
         super.initOnCreate()
+        mBinding.layoutNavTop.ivNavBack.setOnClickListener { onAppBackPage() }
         mBinding.layoutNavTop.tvTitle.setText(R.string.qr_create)
+
+        val bgId = intent.getIntExtra("bg_id", -1)
 
         mBinding.recycleQrType.layoutManager = GridLayoutManager(this, 2)
         mAdapter = BarCodeTypeAdapter(typeList) {
-            BarCodeDataGenActivity.toGenData(this, it)
+            BarCodeDataGenActivity.toGenData(this, it, bgId)
         }
         mBinding.recycleQrType.adapter = mAdapter
         mBinding.recycleQrType.addItemDecoration(

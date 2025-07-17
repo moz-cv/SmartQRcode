@@ -72,4 +72,21 @@
     <string name="ins_invalidate">Instagram链接格式不正确</string>
     <string name="facebook_invalidate">Facebook链接格式不正确</string>
     <string name="data_invalidate">格式不匹配</string>
+    <string name="create_type">Create Type</string>
+    <string name="share">Share</string>
+    <string name="copied">Copied!</string>
+    <string name="saved_successfully">Saved successfully</string>
+    <string name="permission_denied">Permission Denied</string>
+    <string name="cancel">Cancel</string>
+    <string name="go_set">Go to Settings</string>
+    <string name="set_open_camera_hint">Camera permission is permanently denied, please enable it manually in settings</string>
+    <string name="set_open_storage_hint">Storage permission is permanently denied, please enable it manually in settings</string>
+    <string name="scan_failed">Scan Failed</string>
+    <string name="select_picture">Select Picture</string>
+    <string name="edit">Edit</string>
+    <string name="delete">Delete</string>
+    <string name="no_content">No content</string>
+    <string name="tips">Tips</string>
+    <string name="delete_data_content">Do you want to delete this data?</string>
+    <string name="share_max_limit">A maximum of 8 data can be shared</string>
 </resources>

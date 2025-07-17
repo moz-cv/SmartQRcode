@@ -40,7 +40,7 @@
 
 
         <ImageView
-            android:id="@+id/tv_action_ok"
+            android:id="@+id/iv_action_share"
             android:layout_width="44dp"
             android:layout_height="44dp"
             android:layout_marginEnd="6dp"
@@ -92,6 +92,7 @@
 
 
         <LinearLayout
+            android:id="@+id/layout_save"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:gravity="center"
@@ -115,6 +116,7 @@
             android:layout_weight="1" />
 
         <LinearLayout
+            android:id="@+id/layout_style"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:gravity="center"
@@ -123,12 +125,12 @@
             <ImageView
                 android:layout_width="44dp"
                 android:layout_height="44dp"
-                android:src="@mipmap/ic_save" />
+                android:src="@mipmap/ic_style" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/save" />
+                android:text="@string/style" />
         </LinearLayout>
 
         <View
@@ -137,6 +139,7 @@
             android:layout_weight="1" />
 
         <LinearLayout
+            android:id="@+id/layout_open"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:gravity="center"
@@ -150,7 +153,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/save" />
+                android:text="@string/open" />
         </LinearLayout>
     </LinearLayout>
 

@@ -6,6 +6,7 @@ import android.view.MotionEvent
 import android.view.View
 import android.view.inputmethod.InputMethodManager
 import android.widget.EditText
+import androidx.activity.OnBackPressedCallback
 import androidx.activity.SystemBarStyle
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
@@ -40,13 +41,18 @@ abstract class BaseActivity<T : ViewBinding> : AppCompatActivity() {
             )
             insets
         }
+        onBackPressedDispatcher.addCallback(this, object : OnBackPressedCallback(true) {
+            override fun handleOnBackPressed() {
+                onAppBackPage()
+            }
+        })
         initOnCreate()
     }
 
     abstract fun inflateBinding(): T
 
     open fun lightStatusBar(): Boolean {
-        return true
+        return false
     }
 
     open fun lightStatusNav(): Boolean {
@@ -89,5 +95,9 @@ abstract class BaseActivity<T : ViewBinding> : AppCompatActivity() {
         val inputMethodManager: InputMethodManager =
             view.context.getSystemService(INPUT_METHOD_SERVICE) as InputMethodManager
         inputMethodManager.hideSoftInputFromWindow(view.windowToken, 0)
+    }
+
+    open fun onAppBackPage() {
+        finish()
     }
 }

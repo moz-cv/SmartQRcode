@@ -1,8 +1,12 @@
 package com.szr.co.smart.qr.utils
 
+import android.content.Context
 import android.graphics.Bitmap
+import android.graphics.BitmapFactory
+import android.graphics.Canvas
 import android.graphics.Color
 import androidx.core.graphics.createBitmap
+import androidx.core.graphics.scale
 import androidx.core.graphics.set
 import com.google.zxing.BarcodeFormat
 import com.google.zxing.EncodeHintType
@@ -18,15 +22,58 @@ import com.google.zxing.oned.ITFWriter
 import com.google.zxing.oned.UPCAWriter
 import com.google.zxing.oned.UPCEWriter
 import com.google.zxing.qrcode.QRCodeWriter
-import com.journeyapps.barcodescanner.BarcodeEncoder
-import com.king.zxing.util.CodeUtils
+import com.szr.co.smart.qr.logic.QrResLogic
 import com.szr.co.smart.qr.model.QRCodeType
 
 
 object QrUtils {
 
+    fun createQrBitmap(
+        context: Context,
+        content: String,
+        format: BarcodeFormat,
+        bgId: Int
+    ): Bitmap {
+        var width = 800
+        var height = 800
 
-    fun generateQRCode(
+        var startY = 100f
+        val bitmap = if (format == BarcodeFormat.QR_CODE) {
+            generateQRCode(content, format)
+        } else {
+            height = 400
+            startY = 50f
+            generateBarCode(content, format)
+        }
+
+        return createQrBgBitmap(context, bitmap, bgId, width, height, startY)
+    }
+
+
+    private fun createQrBgBitmap(
+        context: Context,
+        first: Bitmap,
+        id: Int,
+        width: Int,
+        height: Int,
+        startY: Float
+    ): Bitmap {
+        val resId = QrResLogic.getResById(id)
+        if (resId == -1) return first
+        val result = createBitmap(width, height)
+        result.eraseColor(Color.WHITE) //填充颜色
+        val canvas = Canvas(result)
+        val second = BitmapFactory.decodeResource(
+            context.resources,
+            resId,
+            null
+        ).scale(width, height)
+        canvas.drawBitmap(second, 0f, 0f, null)
+        canvas.drawBitmap(first, 100f, startY, null)
+        return result
+    }
+
+    private fun generateQRCode(
         content: String, format: BarcodeFormat
     ): Bitmap {
         val qrCodeWriter = QRCodeWriter()
@@ -54,7 +101,7 @@ object QrUtils {
     }
 
 
-    fun generateBarCode(content: String, format: BarcodeFormat?): Bitmap {
+    private fun generateBarCode(content: String, format: BarcodeFormat?): Bitmap {
         // 选择正确的 Writer
         val codeWriter = when (format) {
             BarcodeFormat.ITF -> ITFWriter()
@@ -110,6 +157,21 @@ object QrUtils {
             BarcodeFormat.UPC_E -> QRCodeType.BARCODE_UPC_E
             BarcodeFormat.QR_CODE -> detectQRCodeType(content)
             else -> QRCodeType.QRCODE_TEXT
+        }
+    }
+
+    fun isQrCodeType(type: Int): Boolean {
+        return when (type) {
+            QRCodeType.BARCODE_CODABAR -> false
+            QRCodeType.BARCODE_CODE_39 -> false
+            QRCodeType.BARCODE_CODE_93 -> false
+            QRCodeType.BARCODE_CODE_128 -> false
+            QRCodeType.BARCODE_EAN_8 -> false
+            QRCodeType.BARCODE_EAN_13 -> false
+            QRCodeType.BARCODE_ITF -> false
+            QRCodeType.BARCODE_UPC_A -> false
+            QRCodeType.BARCODE_UPC_E -> false
+            else -> true
         }
     }
 

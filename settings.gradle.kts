@@ -9,6 +9,17 @@ pluginManagement {
         }
         mavenCentral()
         gradlePluginPortal()
+
+        maven(url = "https://jitpack.io")
+
+        maven (url = "https://dl-maven-android.mintegral.com/repository/mbridge_android_sdk_oversea")
+        maven (url = "https://artifact.bytedance.com/repository/pangle/")
+        maven (url = "https://android-sdk.is.com/")
+
+        //SE SDK仓库地址
+        maven ( url ="https://maven-android.solar-engine.com/repository/se_sdk_for_android/" )
+        maven ( url ="https://developer.huawei.com/repo/" )
+        maven ( url ="https://developer.hihonor.com/repo/" )
     }
 }
 dependencyResolutionManagement {
@@ -16,7 +27,19 @@ dependencyResolutionManagement {
     repositories {
         google()
         mavenCentral()
+
+        maven(url = "https://jitpack.io")
+
+        maven (url = "https://dl-maven-android.mintegral.com/repository/mbridge_android_sdk_oversea")
+        maven (url = "https://artifact.bytedance.com/repository/pangle/")
+        maven (url = "https://android-sdk.is.com/")
+
+        //SE SDK仓库地址
+        maven ( url ="https://maven-android.solar-engine.com/repository/se_sdk_for_android/" )
+        maven ( url ="https://developer.huawei.com/repo/" )
+        maven ( url ="https://developer.hihonor.com/repo/" )
     }
+
 }
 
 rootProject.name = "SmartQRcode"

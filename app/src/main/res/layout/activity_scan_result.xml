@@ -40,7 +40,7 @@
 
 
         <ImageView
-            android:id="@+id/tv_action_ok"
+            android:id="@+id/iv_action_share"
             android:layout_width="44dp"
             android:layout_height="44dp"
             android:layout_marginEnd="6dp"
@@ -70,12 +70,11 @@
             android:id="@+id/iv_qrcode"
             android:layout_width="200dp"
             android:layout_height="wrap_content"
-            tools:src="@mipmap/ic_launcher"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
+            app:layout_constraintTop_toTopOf="parent"
+            tools:src="@mipmap/ic_launcher" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
@@ -95,6 +94,7 @@
 
 
         <LinearLayout
+            android:id="@+id/layout_save"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:gravity="center"
@@ -118,6 +118,7 @@
             android:layout_weight="1" />
 
         <LinearLayout
+            android:id="@+id/layout_style"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:gravity="center"
@@ -126,12 +127,12 @@
             <ImageView
                 android:layout_width="44dp"
                 android:layout_height="44dp"
-                android:src="@mipmap/ic_save" />
+                android:src="@mipmap/ic_style" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/save" />
+                android:text="@string/style" />
         </LinearLayout>
 
         <View
@@ -140,6 +141,7 @@
             android:layout_weight="1" />
 
         <LinearLayout
+            android:id="@+id/layout_open"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:gravity="center"
@@ -153,19 +155,40 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/save" />
+                android:text="@string/open" />
         </LinearLayout>
     </LinearLayout>
 
 
-    <FrameLayout
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="38dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="16dp"
         android:layout_marginTop="12dp"
-        android:background="#EBF0FF"
+        android:background="@drawable/shape_result_card"
+        android:orientation="vertical"
         app:layout_constraintTop_toBottomOf="@id/layout_left_content">
 
-    </FrameLayout>
+
+        <TextView
+            android:id="@+id/tv_content"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="16dp"
+            android:layout_marginTop="6dp"
+            android:layout_marginBottom="4dp" />
+
+        <ImageView
+            android:id="@+id/iv_action_copy"
+            android:layout_width="44dp"
+            android:layout_height="36dp"
+            android:layout_gravity="end"
+            android:layout_marginEnd="4dp"
+            android:layout_marginBottom="8dp"
+            android:paddingHorizontal="10dp"
+            android:paddingVertical="5dp"
+            android:src="@mipmap/ic_copy" />
+    </LinearLayout>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

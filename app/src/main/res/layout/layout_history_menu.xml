@@ -7,10 +7,16 @@
     android:orientation="vertical">
 
 
+    <View
+        android:layout_width="33dp"
+        android:layout_height="6dp"
+        android:layout_marginTop="6dp"
+        android:background="@drawable/shape_bar" />
+
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="22dp"
+        android:layout_marginTop="10dp"
         android:layout_marginBottom="16dp"
         android:text="@string/history"
         android:textColor="@color/black"

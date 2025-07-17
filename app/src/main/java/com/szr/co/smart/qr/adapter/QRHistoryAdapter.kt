@@ -12,6 +12,7 @@ import com.szr.co.smart.qr.logic.QrResLogic
 import com.szr.co.smart.qr.room.model.QRDataModel
 import com.szr.co.smart.qr.utils.QrUtils
 import android.graphics.Bitmap
+import androidx.core.view.isVisible
 import com.szr.co.smart.qr.utils.LruCacheUtils
 import com.google.zxing.BarcodeFormat
 import com.szr.co.smart.qr.utils.TimeFormatUtils
@@ -25,6 +26,17 @@ class QRHistoryAdapter(val context: Context) :
 
     private val adapterScope = CoroutineScope(Dispatchers.Main + SupervisorJob())
 
+
+    var selectEnable = false
+    var selectIdList = mutableMapOf<Int, QRDataModel>()
+
+    fun changeSelect(select: Boolean) {
+        selectEnable = select
+        if (!selectEnable) {
+            selectIdList.clear()
+        }
+        notifyDataSetChanged()
+    }
 
     class ViewHolder(val binding: ItemQrDataBinding) : RecyclerView.ViewHolder(binding.root)
 
@@ -72,12 +84,7 @@ class QRHistoryAdapter(val context: Context) :
             holder.binding.ivQr.setImageBitmap(null)
             adapterScope.launch {
                 val bitmap = withContext(Dispatchers.IO) {
-
-                    if (format == BarcodeFormat.QR_CODE) {
-                        QrUtils.generateQRCode(data.content, format)
-                    } else {
-                        QrUtils.generateBarCode(data.content, format)
-                    }
+                    QrUtils.createQrBitmap(context, data.content, format, data.bgId)
                 }
                 LruCacheUtils.putId(cacheKey, bitmap)
                 // 用tag判断，防止图片错位
@@ -85,6 +92,24 @@ class QRHistoryAdapter(val context: Context) :
                     holder.binding.ivQr.setImageBitmap(bitmap)
                 }
             }
+        }
+
+        if (selectEnable) {
+            holder.binding.ivSelect.isVisible = true
+            val selected = selectIdList.contains(data.id)
+            holder.binding.ivSelect.setImageResource(if (selected) R.mipmap.ic_selected else R.mipmap.ic_unselect)
+        }else{
+            holder.binding.ivSelect.isVisible = false
+        }
+
+        holder.binding.root.setOnClickListener {
+            if (!selectEnable) return@setOnClickListener
+            if (selectIdList.containsKey(data.id)) {
+                selectIdList.remove(data.id)
+            } else {
+                selectIdList.put(data.id,data)
+            }
+            notifyItemChanged(position)
         }
     }
 

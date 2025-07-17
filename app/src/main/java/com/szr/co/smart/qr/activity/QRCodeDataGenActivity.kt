@@ -27,15 +27,17 @@ class QRCodeDataGenActivity : BaseActivity<ActivityQrcodeDataGenBinding>() {
 
 
     companion object {
-        fun toGenData(context: Context, @QRCodeType type: Int) {
+        fun toGenData(context: Context, @QRCodeType type: Int, bgId: Int) {
             val intent = Intent(context, QRCodeDataGenActivity::class.java)
             intent.putExtra("type", type)
+            intent.putExtra("bg_id", bgId)
             context.startActivity(intent)
         }
     }
 
     private lateinit var mQrDataView: BaseQRDataView
     private var qrCodeType: Int = QRCodeType.QRCODE_WEBSITE
+    private var bgId = -1
 
     override fun inflateBinding(): ActivityQrcodeDataGenBinding {
         return ActivityQrcodeDataGenBinding.inflate(layoutInflater)
@@ -44,8 +46,10 @@ class QRCodeDataGenActivity : BaseActivity<ActivityQrcodeDataGenBinding>() {
 
     override fun initOnCreate() {
         super.initOnCreate()
-        qrCodeType = intent.getIntExtra("type", QRCodeType.QRCODE_WEBSITE)
+        mBinding.layoutNavTop.ivNavBack.setOnClickListener { onAppBackPage() }
 
+        qrCodeType = intent.getIntExtra("type", QRCodeType.QRCODE_WEBSITE)
+        bgId = intent.getIntExtra("bg_id", -1)
         val data = QrResLogic.getQRCodeTypeRes(qrCodeType)
         if (data != null) {
             mBinding.layoutNavTop.tvTitle.setText(data.second)
@@ -89,14 +93,10 @@ class QRCodeDataGenActivity : BaseActivity<ActivityQrcodeDataGenBinding>() {
             toast(getString(R.string.data_is_empty))
             return
         }
-        lifecycleScope.launch(Dispatchers.IO) {
-            val dataModel = QRDataModel(0, data, qrCodeType, 1, System.currentTimeMillis())
-            AppDB.db.qrDataDao().insert(dataModel)
-            withContext(Dispatchers.Main) {
-                GenResultActivity.toResult(this@QRCodeDataGenActivity, dataModel)
-                finish()
-            }
-        }
+
+        val dataModel = QRDataModel(0, data, qrCodeType, bgId, 1, System.currentTimeMillis())
+        GenResultActivity.toResult(this@QRCodeDataGenActivity, dataModel)
+        finish()
     }
 
 }

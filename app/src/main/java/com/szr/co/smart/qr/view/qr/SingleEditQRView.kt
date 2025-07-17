@@ -68,7 +68,7 @@ class SingleEditQRView : BaseQRDataView {
 
             QRCodeType.QRCODE_WHATSAPP -> {
                 if (!QrUtils.isWhatsApp(data)) {
-                    context.toast(context.getString(R.string.wifi_invalidate))
+                    context.toast(context.getString(R.string.whatsapp_invalidate))
                     return "none"
                 }
             }
