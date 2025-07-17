@@ -1,5 +1,6 @@
 package com.szr.co.smart.qr.activity.base
 
+import android.content.Context
 import android.graphics.Color
 import android.os.Bundle
 import android.view.MotionEvent
@@ -14,6 +15,7 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.viewbinding.ViewBinding
 import com.szr.co.smart.qr.R
+import com.szr.co.smart.qr.utils.AppLangUtils
 
 abstract class BaseActivity<T : ViewBinding> : AppCompatActivity() {
 
@@ -99,5 +101,9 @@ abstract class BaseActivity<T : ViewBinding> : AppCompatActivity() {
 
     open fun onAppBackPage() {
         finish()
+    }
+
+    override fun attachBaseContext(newBase: Context?) {
+        super.attachBaseContext(AppLangUtils.attachBaseContext(newBase))
     }
 }
