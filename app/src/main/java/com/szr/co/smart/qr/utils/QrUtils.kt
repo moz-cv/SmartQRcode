@@ -73,17 +73,17 @@ object QrUtils {
         return result
     }
 
-    private fun generateQRCode(
-        content: String, format: BarcodeFormat
+    fun generateQRCode(
+        content: String, format: BarcodeFormat, width: Int? = null, height: Int? = null
     ): Bitmap {
         val qrCodeWriter = QRCodeWriter()
         val hints = mapOf(EncodeHintType.MARGIN to 1) // 设置边距为1
         val bitMatrix: BitMatrix
         try {
-            bitMatrix = qrCodeWriter.encode(content, format, 600, 600, hints)
+            bitMatrix = qrCodeWriter.encode(content, format, width ?: 600, height ?: 600, hints)
         } catch (e: WriterException) {
             e.printStackTrace()
-            return createBitmap(600, 600, Bitmap.Config.RGB_565).apply {
+            return createBitmap(width ?: 600, height ?: 600, Bitmap.Config.RGB_565).apply {
                 eraseColor(Color.WHITE)
             }
         }

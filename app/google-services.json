@@ -1,0 +1,105 @@
+{
+  "project_info": {
+    "project_number": "1000610912924",
+    "project_id": "vibevd-587ab",
+    "storage_bucket": "vibevd-587ab.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1000610912924:android:bdc3e2bc2dd7e214e02b59",
+        "android_client_info": {
+          "package_name": "com.ffr.vibe.down"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBSdSaHyxyUXqVgJHVTMZEmQuXLdO3N2zI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1000610912924:android:72fcdcbf866b0d0ae02b59",
+        "android_client_info": {
+          "package_name": "com.fio.mg.saver"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBSdSaHyxyUXqVgJHVTMZEmQuXLdO3N2zI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1000610912924:android:c2fcc3230806d870e02b59",
+        "android_client_info": {
+          "package_name": "com.ku.rumble.video"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBSdSaHyxyUXqVgJHVTMZEmQuXLdO3N2zI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1000610912924:android:cb88d79c055de035e02b59",
+        "android_client_info": {
+          "package_name": "com.szr.co.smart.qr"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBSdSaHyxyUXqVgJHVTMZEmQuXLdO3N2zI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1000610912924:android:f4f48de2dd9fb878e02b59",
+        "android_client_info": {
+          "package_name": "com.video.bav.downloader"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBSdSaHyxyUXqVgJHVTMZEmQuXLdO3N2zI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

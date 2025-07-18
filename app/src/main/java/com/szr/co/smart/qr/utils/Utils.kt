@@ -5,7 +5,11 @@ import android.content.Context
 import android.content.Intent
 import android.net.Uri
 import android.provider.Settings
+import android.util.Base64
 import androidx.core.net.toUri
+import java.time.Instant
+import java.time.ZoneId
+import java.time.ZonedDateTime
 
 object Utils {
 
@@ -29,6 +33,28 @@ object Utils {
             }
             context.startActivity(intent)
         } catch (e: Exception) {
+        }
+    }
+
+    fun sameDay(time: Long): Boolean {
+        val instant = Instant.ofEpochMilli(time)
+        val zonedDateTimeOfGivenTime = ZonedDateTime.ofInstant(instant, ZoneId.systemDefault())
+
+        val currentInstant = Instant.now()
+        val zonedDateTimeOfCurrentTime =
+            ZonedDateTime.ofInstant(currentInstant, ZoneId.systemDefault())
+        return zonedDateTimeOfGivenTime.toLocalDate()
+            .equals(zonedDateTimeOfCurrentTime.toLocalDate())
+    }
+
+
+    fun decodeBase64(str: String?): String {
+        if (str.isNullOrEmpty()) return ""
+        return try {
+            String(Base64.decode(str, Base64.NO_WRAP))
+        } catch (e: Exception) {
+            e.printStackTrace()
+            ""
         }
     }
 }

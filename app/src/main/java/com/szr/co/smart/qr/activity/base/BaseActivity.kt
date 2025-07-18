@@ -22,6 +22,9 @@ abstract class BaseActivity<T : ViewBinding> : AppCompatActivity() {
     // 使用懒加载方式初始化 binding，避免在 onCreate 之前访问
     val mBinding: T by lazy { inflateBinding() }
 
+    var skipOnceNativeResume = false
+    var isShowing = true
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge(
@@ -67,6 +70,17 @@ abstract class BaseActivity<T : ViewBinding> : AppCompatActivity() {
 
 
     open fun initOnCreate() {}
+
+    override fun onResume() {
+        isShowing = true
+        super.onResume()
+
+    }
+
+    override fun onPause() {
+        isShowing = false
+        super.onPause()
+    }
 
     override fun dispatchTouchEvent(ev: MotionEvent?): Boolean {
         if (ev?.action == MotionEvent.ACTION_DOWN) {

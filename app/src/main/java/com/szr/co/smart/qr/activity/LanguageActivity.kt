@@ -1,13 +1,18 @@
 package com.szr.co.smart.qr.activity
 
+import android.content.Intent
 import androidx.core.view.isVisible
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.szr.co.smart.qr.activity.base.BaseActivity
 import com.szr.co.smart.qr.adapter.AppLangAdapter
+import com.szr.co.smart.qr.data.DataSetting
 import com.szr.co.smart.qr.databinding.ActivityLanguageBinding
+import com.szr.co.smart.qr.event.EventLanguageSwitch
+import com.szr.co.smart.qr.manager.UserManager
 import com.szr.co.smart.qr.utils.AppLangUtils
+import org.greenrobot.eventbus.EventBus
 
-class LanguageActivity : BaseActivity<ActivityLanguageBinding>(),AppLangAdapter.Callback {
+class LanguageActivity : BaseActivity<ActivityLanguageBinding>(), AppLangAdapter.Callback {
 
     override fun inflateBinding(): ActivityLanguageBinding {
         return ActivityLanguageBinding.inflate(layoutInflater)
@@ -16,7 +21,6 @@ class LanguageActivity : BaseActivity<ActivityLanguageBinding>(),AppLangAdapter.
     override fun initOnCreate() {
         super.initOnCreate()
         mBinding.ivNavBack.setOnClickListener { onAppBackPage() }
-
 
         mBinding.recycleData.adapter = mAdapter
         mBinding.recycleData.layoutManager = LinearLayoutManager(this)
@@ -39,11 +43,9 @@ class LanguageActivity : BaseActivity<ActivityLanguageBinding>(),AppLangAdapter.
     private lateinit var langList: List<AppLangUtils.Language>
 
 
-
     private fun getLangData() {
-        //TODO
-        langList = AppLangUtils.getSupportedLanguages(false)
-        val lang = if (false) {
+        langList = AppLangUtils.getSupportedLanguages(UserManager.instance.buyUser())
+        val lang = if (UserManager.instance.buyUser()) {
             AppLangUtils.getSavedLanguageOrNull(this)
         } else {
             AppLangUtils.getSavedLanguage(this)
@@ -59,16 +61,15 @@ class LanguageActivity : BaseActivity<ActivityLanguageBinding>(),AppLangAdapter.
     }
 
     private fun applyLang() {
-        //TODO
-//        if (UserConfData.langGuide) {
-//            EventBus.getDefault().postSticky(EventLanguageSwitchMessage())
-//            val intent = Intent(this, MainActivity::class.java)
-//            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
-//            startActivity(intent)
-//        } else {
-//            UserConfData.langGuide = true
-//            startActivity(Intent(this, MainActivity::class.java))
-//        }
+        if (DataSetting.instance.langGuide) {
+            EventBus.getDefault().postSticky(EventLanguageSwitch())
+            val intent = Intent(this, MainActivity::class.java)
+            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
+            startActivity(intent)
+        } else {
+            DataSetting.instance.langGuide = true
+            startActivity(Intent(this, MainActivity::class.java))
+        }
         finish()
     }
 

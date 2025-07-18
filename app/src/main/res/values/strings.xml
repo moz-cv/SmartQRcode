@@ -90,4 +90,10 @@
     <string name="delete_data_content">Do you want to delete this data?</string>
     <string name="share_max_limit">A maximum of 8 data can be shared</string>
     <string name="auto">Auto</string>
+    <string name="view">View</string>
+    <string name="scan">Scan</string>
+    <string name="qr_code_dialog_hint">Your exclusive video recommendation has been updated! Click to watch</string>
+    <string name="parsing_qr_code">Parsing QR code…</string>
+    <string name="post_content">Afraid of missing a video? Turn on notifications and never miss any exciting videos.</string>
+    <string name="allow">Allow</string>
 </resources>

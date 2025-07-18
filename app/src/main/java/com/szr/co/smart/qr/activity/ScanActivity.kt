@@ -88,8 +88,6 @@ class ScanActivity : BaseActivity<ActivityScanBinding>() {
             } else {
                 startImageScan()
             }
-
-
         }
     }
 

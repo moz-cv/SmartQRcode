@@ -3,7 +3,18 @@ plugins {
     alias(libs.plugins.kotlin.android)
     id("com.google.devtools.ksp") version "2.1.21-2.0.1"
     id("kotlin-parcelize")
+    id("com.google.gms.google-services")
+    id("com.google.firebase.crashlytics")
 }
+
+apply(plugin = "stringfog")
+configure<com.github.megatronking.stringfog.plugin.StringFogExtension> {
+    implementation = "com.github.megatronking.stringfog.xor.StringFogImpl"
+    packageName = "com.github.megatronking.stringfog.app"
+    kg = com.github.megatronking.stringfog.plugin.kg.RandomKeyGenerator()
+    mode = com.github.megatronking.stringfog.plugin.StringFogMode.base64
+}
+
 
 android {
     namespace = "com.szr.co.smart.qr"
@@ -77,4 +88,41 @@ dependencies {
     implementation("androidx.room:room-paging:2.7.2")
     implementation("androidx.paging:paging-runtime:3.3.6")
     implementation("com.github.lihangleo2:ShadowLayout:3.4.1")
+
+    //admob 广告
+    implementation("com.google.android.gms:play-services-ads:24.2.0")
+//    //admob 广告聚合
+    implementation("com.google.ads.mediation:applovin:13.2.0.1")
+    implementation("com.google.ads.mediation:ironsource:8.8.0.0")
+    implementation("com.google.ads.mediation:mintegral:16.9.61.0")
+    implementation("com.google.ads.mediation:pangle:6.5.0.8.0")
+    implementation("com.unity3d.ads:unity-ads:4.14.1")
+    implementation("com.google.ads.mediation:unity:4.14.2.0")
+
+    //firebase
+    implementation(platform("com.google.firebase:firebase-bom:33.9.0"))
+    implementation("com.google.firebase:firebase-config-ktx")
+    implementation("com.google.firebase:firebase-analytics-ktx")
+    implementation("com.google.firebase:firebase-crashlytics")
+    implementation("com.google.firebase:firebase-messaging-ktx")
+
+    //ump
+    implementation("com.google.android.ump:user-messaging-platform:3.1.0")
+    //fb
+    implementation("com.facebook.android:facebook-android-sdk:latest.release")
+    //热云
+    implementation("com.reyun.solar.engine.oversea:solar-engine-core:1.2.9.6")
+    //instal ref
+    implementation("com.android.installreferrer:installreferrer:2.2")
+
+    implementation("org.greenrobot:eventbus:3.3.1")
+
+    implementation("com.github.megatronking.stringfog:xor:5.0.0")
+    //okhttp
+    implementation("com.squareup.okhttp3:okhttp:4.12.0")
+    implementation("com.squareup.okhttp3:logging-interceptor:4.12.0")
+    implementation("com.tencent:mmkv:1.3.4")
+
+    //gson
+    implementation("com.google.code.gson:gson:2.11.0")
 }

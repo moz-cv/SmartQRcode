@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="push_til">
+        <item>💃 Tempting elegance, click to meet!</item>
+        <item>👀 Exclusive allure, explore now!</item>
+        <item>💖 Secret charm, set it free!</item>
+        <item>🔥 Steamy grace, tap to reveal!</item>
+        <item>💃 Hidden beauty, find her fast!</item>
+        <item>👀 Irresistible spark, open up!</item>
+        <item>💖 Exclusive fire, seize it now!</item>
+        <item>🔥 Tantalizing flame, click here!</item>
+        <item>💃 Alluring whisper, let it out!</item>
+        <item>👀 Sensual spark, tap to see!</item>
+        <item>💖 Forbidden flame, explore deep!</item>
+        <item>🔥 Tempting warmth, come closer!</item>
+        <item>💃 Hidden shine, unlock today!</item>
+        <item>👀 Exclusive heat, grab it quick!</item>
+        <item>💖 Secret glow, give in to it!</item>
+        <item>🔥 Steamy warmth, tap to enjoy!</item>
+        <item>💃 Tempting light, don\'t resist!</item>
+        <item>👀 Alluring riddle, solve it fast!</item>
+        <item>💖 Sensual flame, uncover now!</item>
+        <item>🔥 Forbidden spark, ready to peek?</item>
+        <item>💃 Hidden shine, claim it today!</item>
+        <item>👀 Exclusive glow, explore more!</item>
+        <item>💖 Tempting flame, tap to find!</item>
+        <item>🔥 Steamy spark, act now!</item>
+        <item>💃 Hidden radiance, reveal it!</item>
+        <item>👀 Irresistible flame, open wide!</item>
+        <item>💖 Exclusive glow, grab hold!</item>
+        <item>🔥 Forbidden warmth, click quick!</item>
+        <item>💃 Tempting shine, explore far!</item>
+        <item>👀 Alluring glow, let it shine!</item>
+        <item>💖 Sensual shimmer, tap to enjoy!</item>
+        <item>🔥 Steamy surprise, don\'t miss!</item>
+        <item>💃 Hidden allure, unlock now!</item>
+        <item>👀 Exclusive vision, come see!</item>
+        <item>💖 Tempting charm, tap to find!</item>
+        <item>🔥 Sultry secret, tap to uncover!</item>
+    </string-array>
+
+    <string-array name="push_content">
+        <item>Encounter</item>
+        <item>Traverse</item>
+        <item>Liberate</item>
+        <item>Unveil</item>
+        <item>Chase</item>
+        <item>Ignite</item>
+        <item>Grasp</item>
+        <item>Blaze</item>
+        <item>Echo</item>
+        <item>Kindle</item>
+        <item>Plunge</item>
+        <item>Near</item>
+        <item>Polish</item>
+        <item>Snatch</item>
+        <item>Submit</item>
+        <item>Cuddle</item>
+        <item>Bend</item>
+        <item>Crack</item>
+        <item>Dash</item>
+        <item>Flicker</item>
+        <item>Own</item>
+        <item>Scout</item>
+        <item>Seek</item>
+        <item>Move</item>
+        <item>Unmask</item>
+        <item>Unchain</item>
+        <item>Clench</item>
+        <item>Hit</item>
+        <item>Wander</item>
+        <item>Radiate</item>
+        <item>Savor</item>
+        <item>Capture</item>
+        <item>Unfasten</item>
+        <item>Behold</item>
+        <item>Track</item>
+        <item>Excavate</item>
+    </string-array>
+</resources>
