@@ -3,18 +3,18 @@ package com.szr.co.smart.qr.bill.info
 import android.util.Log
 import com.google.android.gms.ads.nativead.NativeAd
 import com.szr.co.smart.qr.bill.type.ViBillType
-import com.szr.co.smart.qr.bill.view.GradNativeAdLayout
+import com.szr.co.smart.qr.bill.view.SmartNativeAdLayout
 import com.szr.co.smart.qr.activity.base.BaseActivity
 
 class ViNativeInfo(keyInfo: ViKeyInfo, ad: Any) : ViBaseBill(keyInfo, ad) {
 
-    private var nativeAdLayout: GradNativeAdLayout? = null
+    private var nativeAdLayout: SmartNativeAdLayout? = null
 
     fun onClick() {
         click()
     }
 
-    fun setNativeAdLayout(nativeAdLayout: GradNativeAdLayout): ViNativeInfo {
+    fun setNativeAdLayout(nativeAdLayout: SmartNativeAdLayout): ViNativeInfo {
         this.nativeAdLayout = nativeAdLayout
         return this
     }

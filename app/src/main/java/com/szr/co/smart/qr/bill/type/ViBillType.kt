@@ -233,23 +233,51 @@ class ViBillType(val type: String) {
             }
 
             TYPE_OPEN.type -> {
-                AppOpenAd.load(
-                    SmartApp.instance,
-                    keyInfo.key,
-                    AdRequest.Builder().build(),
-                    object : AppOpenAdLoadCallback() {
-                        override fun onAdLoaded(p0: AppOpenAd) {
-                            super.onAdLoaded(p0)
-                            Log.d("AdManager", "load: load ad success type: $type")
-                            callback.invoke(ViOpenInfo(keyInfo, p0))
-                        }
+                if (keyInfo.subType == "pla") {
+                    InterstitialAd.load(
+                        SmartApp.instance,
+                        keyInfo.key,
+                        AdRequest.Builder().build(),
+                        object : InterstitialAdLoadCallback() {
+                            override fun onAdFailedToLoad(p0: LoadAdError) {
+                                super.onAdFailedToLoad(p0)
+                                Log.d(
+                                    "AdManager",
+                                    "load: load ad fail type: $type msg: ${p0.message}"
+                                )
+                                loadAd(keyList, index + 1, activity, callback)
+                            }
 
-                        override fun onAdFailedToLoad(p0: LoadAdError) {
-                            super.onAdFailedToLoad(p0)
-                            Log.d("AdManager", "load: load ad fail type: $type msg: ${p0.message}")
-                            loadAd(keyList, index + 1, activity, callback)
-                        }
-                    })
+                            override fun onAdLoaded(p0: InterstitialAd) {
+                                super.onAdLoaded(p0)
+                                Log.d("AdManager", "load: load ad success type: $type")
+                                callback.invoke(ViInterstitialInfo(keyInfo, p0))
+                            }
+                        })
+                } else {
+                    AppOpenAd.load(
+                        SmartApp.instance,
+                        keyInfo.key,
+                        AdRequest.Builder().build(),
+                        object : AppOpenAdLoadCallback() {
+                            override fun onAdLoaded(p0: AppOpenAd) {
+                                super.onAdLoaded(p0)
+                                Log.d("AdManager", "load: load ad success type: $type")
+                                callback.invoke(ViOpenInfo(keyInfo, p0))
+                            }
+
+                            override fun onAdFailedToLoad(p0: LoadAdError) {
+                                super.onAdFailedToLoad(p0)
+                                Log.d(
+                                    "AdManager",
+                                    "load: load ad fail type: $type msg: ${p0.message}"
+                                )
+                                loadAd(keyList, index + 1, activity, callback)
+                            }
+                        })
+
+
+                }
             }
 
             else -> {

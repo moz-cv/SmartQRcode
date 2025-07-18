@@ -7,7 +7,7 @@ import com.szr.co.smart.qr.bill.info.ViBaseBill
 import com.szr.co.smart.qr.bill.info.ViNativeInfo
 import com.szr.co.smart.qr.bill.position.ViBillPosition
 import com.szr.co.smart.qr.bill.position.ViPositionHelper
-import com.szr.co.smart.qr.bill.view.GradNativeAdLayout
+import com.szr.co.smart.qr.bill.view.SmartNativeAdLayout
 import com.szr.co.smart.qr.activity.base.BaseActivity
 import com.szr.co.smart.qr.event.AppAdTrack
 
@@ -16,7 +16,7 @@ class ViBillHelper(
     private val showIntersPos: ViBillPosition?,
     private val preloadPosList: MutableList<ViBillPosition>?,
     private val showNativePos: ViBillPosition? = null,
-    var nativeAdLayout: GradNativeAdLayout? = null,
+    var nativeAdLayout: SmartNativeAdLayout? = null,
     private val isResume: Boolean = false
 ) {
 

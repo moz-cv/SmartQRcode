@@ -3,20 +3,18 @@ package com.szr.co.smart.qr.bill.view
 import android.content.Context
 import android.util.AttributeSet
 import android.view.LayoutInflater
-import android.view.View
 import android.widget.FrameLayout
 import android.widget.ImageView
 import android.widget.TextView
 import com.google.android.gms.ads.nativead.NativeAd
 import com.google.android.gms.ads.nativead.NativeAdView
-import com.google.protobuf.type
 import com.szr.co.smart.qr.R
 import com.szr.co.smart.qr.databinding.NativeAd2Binding
 import com.szr.co.smart.qr.databinding.NativeAdBigBinding
 import com.szr.co.smart.qr.databinding.NativeAdBinding
 import com.szr.co.smart.qr.manager.UserManager
 
-class GradNativeAdLayout : FrameLayout {
+class SmartNativeAdLayout : FrameLayout {
 
     constructor(context: Context) : super(context) {
         init(null)

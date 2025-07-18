@@ -21,6 +21,7 @@ class ViInterstitialInfo(keyInfo: ViKeyInfo, ad: Any) : ViBaseBill(keyInfo, ad) 
         ad.setOnPaidEventListener {
             eventAdValue(it, ad.responseInfo.loadedAdapterResponseInfo?.adSourceName)
         }
+
         ad.fullScreenContentCallback = object : FullScreenContentCallback() {
             override fun onAdFailedToShowFullScreenContent(p0: AdError) {
                 super.onAdFailedToShowFullScreenContent(p0)
