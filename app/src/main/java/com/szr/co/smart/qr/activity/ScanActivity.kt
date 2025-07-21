@@ -30,7 +30,11 @@ import kotlinx.coroutines.withContext
 import java.io.IOException
 import java.io.InputStream
 import androidx.core.graphics.scale
+import androidx.lifecycle.lifecycleScope
 import com.szr.co.smart.qr.activity.MainActivity
+import com.szr.co.smart.qr.activity.base.BaseAdActivity
+import com.szr.co.smart.qr.bill.ViBillHelper
+import com.szr.co.smart.qr.bill.position.ViBillPosition
 import com.szr.co.smart.qr.utils.Utils
 import com.szr.co.smart.qr.utils.permission.PermissionCallback
 import com.szr.co.smart.qr.utils.permission.requestCameraPermission
@@ -39,7 +43,7 @@ import com.szr.co.smart.qr.utils.toast
 import kotlinx.coroutines.delay
 
 
-class ScanActivity : BaseActivity<ActivityScanBinding>() {
+class ScanActivity : BaseAdActivity<ActivityScanBinding>() {
 
     private val formats = arrayListOf<BarcodeFormat>(
         BarcodeFormat.CODABAR,
@@ -53,6 +57,21 @@ class ScanActivity : BaseActivity<ActivityScanBinding>() {
         BarcodeFormat.UPC_E,
         BarcodeFormat.QR_CODE
     )
+
+    override val billHelper: ViBillHelper by lazy {
+        ViBillHelper(
+            this,
+            ViBillPosition.POS_QR_SCAN_INTERS,
+            mutableListOf(
+                ViBillPosition.POS_QR_RESULT_NATIVE,
+                ViBillPosition.POS_QR_CLICK_SAVE_INTERS
+            ),
+            ViBillPosition.POS_QR_RESULT_NATIVE,
+            null
+        )
+    }
+    override val showBackAd: Boolean
+        get() = true
 
     override fun inflateBinding(): ActivityScanBinding {
         return ActivityScanBinding.inflate(layoutInflater)
@@ -69,6 +88,8 @@ class ScanActivity : BaseActivity<ActivityScanBinding>() {
 
     override fun initOnCreate() {
         super.initOnCreate()
+
+        mBinding.ivActionBack.setOnClickListener { onAppBackPage() }
 
         mBinding.zxingBarcodeSurface.setDecoderFactory(DefaultDecoderFactory(formats))
         mBinding.zxingBarcodeSurface.decodeSingle(callback)
@@ -109,25 +130,24 @@ class ScanActivity : BaseActivity<ActivityScanBinding>() {
 
     private val callback: BarcodeCallback = object : BarcodeCallback {
         override fun barcodeResult(result: BarcodeResult) {
-            toResult(result)
+            toResult(result.barcodeFormat, result.text)
         }
 
         override fun possibleResultPoints(resultPoints: MutableList<ResultPoint?>?) {
         }
     }
 
-    private fun toResult(result: BarcodeResult) {
-        lifecycleScope.launch(Dispatchers.IO) {
-            toResult(result.barcodeFormat, result.text)
+    private fun toResult(type: BarcodeFormat, content: String) {
+        billHelper.showAd {
+            lifecycleScope.launch(Dispatchers.IO) {
+                val data = createQRData(type, content)
+                AppDB.db.qrDataDao().insert(data)
+                ScanResultActivity.toResult(this@ScanActivity, data)
+                withContext(Dispatchers.Main) { finish() }
+
+            }
         }
-    }
 
-
-    private suspend fun toResult(type: BarcodeFormat, content: String) {
-        val data = createQRData(type, content)
-        AppDB.db.qrDataDao().insert(data)
-        ScanResultActivity.toResult(this@ScanActivity, data)
-        withContext(Dispatchers.Main) { finish() }
     }
 
     private fun createQRData(type: BarcodeFormat, content: String): QRDataModel {

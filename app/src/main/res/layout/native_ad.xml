@@ -43,7 +43,7 @@
                         android:layout_width="25dp"
                         android:layout_height="wrap_content"
                         android:layout_gravity="bottom|end"
-                        android:src="@mipmap/ad" />
+                        android:src="@mipmap/ic_ad" />
                 </androidx.cardview.widget.CardView>
 
                 <LinearLayout

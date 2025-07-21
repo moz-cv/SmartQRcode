@@ -8,13 +8,15 @@ import com.bumptech.glide.Priority
 import com.bumptech.glide.load.DecodeFormat
 import com.bumptech.glide.request.RequestOptions
 import com.szr.co.smart.qr.R
-import com.szr.co.smart.qr.activity.base.BaseActivity
 import com.szr.co.smart.qr.databinding.ActivityParseResultBinding
 import com.szr.co.smart.qr.model.VideoModel
 import androidx.core.net.toUri
+import com.szr.co.smart.qr.activity.base.BaseAdActivity
+import com.szr.co.smart.qr.bill.ViBillHelper
+import com.szr.co.smart.qr.bill.position.ViBillPosition
 
 
-class ParseResultActivity : BaseActivity<ActivityParseResultBinding>() {
+class ParseResultActivity : BaseAdActivity<ActivityParseResultBinding>() {
 
 
     companion object {
@@ -24,6 +26,16 @@ class ParseResultActivity : BaseActivity<ActivityParseResultBinding>() {
             intent.putExtra("data", data)
             context.startActivity(intent)
         }
+    }
+
+    override val billHelper: ViBillHelper by lazy {
+        ViBillHelper(
+            this,
+            ViBillPosition.POS_QR_PARSE_RESULT_INTERS,
+            mutableListOf(ViBillPosition.POS_MAIN_CLICK_INTERS, ViBillPosition.POS_MAIN_NATIVE),
+            ViBillPosition.POS_QR_PARSE_RESULT_NATIVE,
+            mBinding.layoutNativeAd
+        )
     }
 
     override fun inflateBinding(): ActivityParseResultBinding {
@@ -47,9 +59,11 @@ class ParseResultActivity : BaseActivity<ActivityParseResultBinding>() {
 
         mBinding.layoutVideo.setOnClickListener {
             if (data != null) {
-                val intent = Intent(Intent.ACTION_VIEW)
-                intent.setDataAndType(data.url.toUri(), "video/*")
-                startActivity(intent)
+                billHelper.showAd {
+                    val intent = Intent(Intent.ACTION_VIEW)
+                    intent.setDataAndType(data.url.toUri(), "video/*")
+                    startActivity(intent)
+                }
             }
         }
     }

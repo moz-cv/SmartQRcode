@@ -5,14 +5,17 @@ import android.content.Intent
 import androidx.recyclerview.widget.GridLayoutManager
 import com.szr.co.smart.qr.R
 import com.szr.co.smart.qr.activity.base.BaseActivity
+import com.szr.co.smart.qr.activity.base.BaseAdActivity
 import com.szr.co.smart.qr.adapter.QRCodeTypeAdapter
+import com.szr.co.smart.qr.bill.ViBillHelper
+import com.szr.co.smart.qr.bill.position.ViBillPosition
 import com.szr.co.smart.qr.databinding.ActivityGenQrcodeBinding
 import com.szr.co.smart.qr.model.QRCodeType
 import com.szr.co.smart.qr.model.QRCodeTypeModel
 import com.szr.co.smart.qr.utils.dpToPx
 import com.szr.co.smart.qr.view.ItemGridDecoration
 
-class GenQRCodeActivity : BaseActivity<ActivityGenQrcodeBinding>() {
+class GenQRCodeActivity : BaseAdActivity<ActivityGenQrcodeBinding>() {
     companion object {
         fun toGenType(context: Context, bgId: Int =-1) {
             val intent = Intent(context, GenQRCodeActivity::class.java)
@@ -34,7 +37,23 @@ class GenQRCodeActivity : BaseActivity<ActivityGenQrcodeBinding>() {
         QRCodeTypeModel(QRCodeType.QRCODE_WHATSAPP, R.string.whatsapp, R.mipmap.ic_qr_wapp),
     )
 
+    override val billHelper: ViBillHelper by lazy {
+        ViBillHelper(
+            this,
+            null,
+            mutableListOf(
+                ViBillPosition.POS_MAIN_NATIVE,
+                ViBillPosition.POS_MAIN_CLICK_INTERS
+            ),
+            null,
+            null,
+        )
+    }
+
     private lateinit var mAdapter: QRCodeTypeAdapter
+
+    override val showBackAd: Boolean
+        get() = true
 
     override fun inflateBinding(): ActivityGenQrcodeBinding {
         return ActivityGenQrcodeBinding.inflate(layoutInflater)

@@ -4,28 +4,23 @@ import com.szr.co.smart.qr.bill.type.ViBillType
 
 enum class ViBillPosition(
     val position: String,
-    val type: ViBillType,
-    val fillInType: ViBillType? = null
-) {
+    val type: ViBillType) {
 
-    POS_OPEN("grad_opn", ViBillType.TYPE_OPEN, ViBillType.TYPE_INTERSTITIAL),
-    POS_LAN_INTERS("grad_lng_i", ViBillType.TYPE_INTERSTITIAL),
-    POS_LAN_NATIVE("grad_lng_n", ViBillType.TYPE_NATIVE),
-    POS_TO_USE_INTERS("grad_use_i", ViBillType.TYPE_INTERSTITIAL),
-    POS_TO_USE_NATIVE("grad_use_n", ViBillType.TYPE_NATIVE),
+    POS_OPEN("sq_start", ViBillType.TYPE_OPEN),
+    POS_LAN_INTERS("sq_lng_i", ViBillType.TYPE_INTERSTITIAL),
+    POS_LAN_NATIVE("sq_lng_n", ViBillType.TYPE_NATIVE),
 
-    POS_RETURN_INTERS("grad_back_i", ViBillType.TYPE_INTERSTITIAL),
-    POS_MAIN_CLICK_INTERS("grad_m_clk_i", ViBillType.TYPE_INTERSTITIAL),
-    POS_MAIN_NATIVE("grad_m_n", ViBillType.TYPE_NATIVE),
+    POS_RETURN_INTERS("sq_back_i", ViBillType.TYPE_INTERSTITIAL),
+    POS_MAIN_CLICK_INTERS("sq_m_clk_i", ViBillType.TYPE_INTERSTITIAL),
+    POS_MAIN_NATIVE("sq_m_n", ViBillType.TYPE_NATIVE),
 
-    POS_AUTHOR_NATIVE("grad_auth_n", ViBillType.TYPE_NATIVE),
-    POS_AUTHOR_DETAIL_NATIVE("grad_auth_detail_n", ViBillType.TYPE_NATIVE),
+    POS_HISTORY_NATIVE("sq_history_n", ViBillType.TYPE_NATIVE),
+    POS_QR_CREATE_NATIVE("sq_qrc_n", ViBillType.TYPE_NATIVE),
+    POS_QR_CREATE_CLICK_INTERS("sq_qrc_clk_i", ViBillType.TYPE_INTERSTITIAL),
+    POS_QR_RESULT_NATIVE("sq_qr_result_n", ViBillType.TYPE_NATIVE),
+    POS_QR_CLICK_SAVE_INTERS("sq_qr_clk_save_i", ViBillType.TYPE_INTERSTITIAL),
+    POS_QR_SCAN_INTERS("sq_qr_scan_i", ViBillType.TYPE_INTERSTITIAL),
 
-    POS_SAVE_VIDEO_INTERS("grad_saveV_i", ViBillType.TYPE_INTERSTITIAL),
-
-    POS_DOWNLOAD_SUCCESS_NATIVE("grad_dow_su_n", ViBillType.TYPE_NATIVE),
-
-    POS_PARSE_SUC_INTERS("grad_p_su_i", ViBillType.TYPE_INTERSTITIAL),
-    POS_PARSE_RESULT_NATIVE("grad_p_re_n", ViBillType.TYPE_NATIVE),
-    POS_PARSE_DOWNLOAD_INTERS("grad_pd_i", ViBillType.TYPE_INTERSTITIAL),
+    POS_QR_PARSE_RESULT_INTERS("sq_qr_scan_i", ViBillType.TYPE_INTERSTITIAL),
+    POS_QR_PARSE_RESULT_NATIVE("sq_qr_scan_n", ViBillType.TYPE_NATIVE),
 }

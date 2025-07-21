@@ -45,10 +45,10 @@ import kotlin.math.pow
 class ViBillType(val type: String) {
 
     companion object {
-        val TYPE_BANNER by lazy(LazyThreadSafetyMode.SYNCHRONIZED) { ViBillType("grad_bar") }
-        val TYPE_NATIVE by lazy(LazyThreadSafetyMode.SYNCHRONIZED) { ViBillType("grad_nati") }
-        val TYPE_INTERSTITIAL by lazy(LazyThreadSafetyMode.SYNCHRONIZED) { ViBillType("grad_pla") }
-        val TYPE_OPEN by lazy(LazyThreadSafetyMode.SYNCHRONIZED) { ViBillType("grad_spl") }
+        val TYPE_BANNER by lazy(LazyThreadSafetyMode.SYNCHRONIZED) { ViBillType("sq_bar") }
+        val TYPE_NATIVE by lazy(LazyThreadSafetyMode.SYNCHRONIZED) { ViBillType("sq_nati") }
+        val TYPE_INTERSTITIAL by lazy(LazyThreadSafetyMode.SYNCHRONIZED) { ViBillType("sq_pla") }
+        val TYPE_OPEN by lazy(LazyThreadSafetyMode.SYNCHRONIZED) { ViBillType("sq_spl") }
 
         fun clean() {
             TYPE_BANNER.billInfo = null
@@ -68,7 +68,7 @@ class ViBillType(val type: String) {
 
     fun preloadAd() {
         Log.d("AdManager", "preload: start preload ad type: $type")
-        loadAd(null, 1, null)
+        loadAd(1, null)
     }
 
     fun preloadAd(position: ViBillPosition) {
@@ -88,7 +88,7 @@ class ViBillType(val type: String) {
             callback?.invoke(null)
             return
         }
-        loadAd(position.fillInType, loadType, callback)
+        loadAd(loadType, callback)
     }
 
     fun loadBannerAd(
@@ -114,7 +114,7 @@ class ViBillType(val type: String) {
 
     }
 
-    private fun loadAd(fillInType: ViBillType?, loadType: Int, callback: ((ViBaseBill?) -> Unit)?) {
+    private fun loadAd(loadType: Int, callback: ((ViBaseBill?) -> Unit)?) {
         var comCallback = callback
         var count = 0
         if (loadType != 1) {
@@ -130,13 +130,6 @@ class ViBillType(val type: String) {
         if (billInfo == null) {
             Log.d("AdManager", "load: ad config is null type: $type")
             comCallback?.invoke(null)
-            if (loadType == 1) {
-                fillInType?.let {
-                    if (it.type != type) {
-                        it.preloadAd()
-                    }
-                }
-            }
             return
         }
         if (isLoadingAd(billInfo, count)) {
@@ -243,7 +236,7 @@ class ViBillType(val type: String) {
                                 super.onAdFailedToLoad(p0)
                                 Log.d(
                                     "AdManager",
-                                    "load: load ad fail type: $type msg: ${p0.message}"
+                                    "load: load ad fail type: $type msg: ${p0.message},${keyInfo.key}"
                                 )
                                 loadAd(keyList, index + 1, activity, callback)
                             }
@@ -349,7 +342,7 @@ class ViBillType(val type: String) {
             val keyList = mutableListOf<ViKeyInfo>()
             for (n in 0 until count) {
                 array.getJSONObject(n).run {
-                    keyList.add(ViKeyInfo(getString("sq_ky"), getInt("sq_pr")))
+                    keyList.add(ViKeyInfo(getString("sq_ky"), getInt("sq_pr"),optString("sub_type")))
                 }
             }
             keyList.sortByDescending { it.priority }

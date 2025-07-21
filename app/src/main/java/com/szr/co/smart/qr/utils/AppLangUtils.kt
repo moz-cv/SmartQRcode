@@ -24,6 +24,9 @@ object AppLangUtils {
         object Korean : Language("한국어", Locale("ko"))
         object Japanese : Language("日本語", Locale("ja"))
         object Arabic : Language("عربي", Locale("ar"))
+        object German : Language("Deutsch", Locale("de"))
+        object Russian : Language("Pусский", Locale("ru"))
+        object ChineseTw : Language("繁體中文", Locale("zh", "tw"))
 
 
         companion object {
@@ -38,6 +41,9 @@ object AppLangUtils {
                     Korean.displayName -> Korean
                     Arabic.displayName -> Arabic
                     Japanese.displayName -> Japanese
+                    German.displayName -> German
+                    Russian.displayName -> Russian
+                    ChineseTw.displayName -> ChineseTw
                     else -> Auto
                 }
             }
@@ -54,7 +60,10 @@ object AppLangUtils {
         Language.Spanish,
         Language.Arabic,
         Language.Japanese,
-        Language.Korean
+        Language.Korean,
+        Language.German,
+        Language.Russian,
+        Language.ChineseTw
     )
 
     private val supportedLanguagesWithoutAuto = allSupportedLanguages.filter { it != Language.Auto }

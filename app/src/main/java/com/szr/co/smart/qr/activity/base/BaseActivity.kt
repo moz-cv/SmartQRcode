@@ -15,6 +15,8 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.viewbinding.ViewBinding
 import com.szr.co.smart.qr.R
+import com.szr.co.smart.qr.bill.ViBillHelper
+import com.szr.co.smart.qr.bill.position.ViBillPosition
 import com.szr.co.smart.qr.utils.AppLangUtils
 
 abstract class BaseActivity<T : ViewBinding> : AppCompatActivity() {
@@ -24,6 +26,7 @@ abstract class BaseActivity<T : ViewBinding> : AppCompatActivity() {
 
     var skipOnceNativeResume = false
     var isShowing = true
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

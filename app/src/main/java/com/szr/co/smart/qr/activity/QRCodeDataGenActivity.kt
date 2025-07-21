@@ -7,6 +7,9 @@ import android.widget.FrameLayout
 import androidx.lifecycle.lifecycleScope
 import com.szr.co.smart.qr.R
 import com.szr.co.smart.qr.activity.base.BaseActivity
+import com.szr.co.smart.qr.activity.base.BaseAdActivity
+import com.szr.co.smart.qr.bill.ViBillHelper
+import com.szr.co.smart.qr.bill.position.ViBillPosition
 import com.szr.co.smart.qr.databinding.ActivityQrcodeDataGenBinding
 import com.szr.co.smart.qr.logic.QrResLogic
 import com.szr.co.smart.qr.model.QRCodeType
@@ -23,7 +26,7 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 
-class QRCodeDataGenActivity : BaseActivity<ActivityQrcodeDataGenBinding>() {
+class QRCodeDataGenActivity : BaseAdActivity<ActivityQrcodeDataGenBinding>() {
 
 
     companion object {
@@ -38,6 +41,16 @@ class QRCodeDataGenActivity : BaseActivity<ActivityQrcodeDataGenBinding>() {
     private lateinit var mQrDataView: BaseQRDataView
     private var qrCodeType: Int = QRCodeType.QRCODE_WEBSITE
     private var bgId = -1
+
+    override val billHelper: ViBillHelper by lazy {
+        ViBillHelper(
+            this,
+            ViBillPosition.POS_QR_CREATE_CLICK_INTERS,
+            mutableListOf(ViBillPosition.POS_QR_RESULT_NATIVE, ViBillPosition.POS_QR_CLICK_SAVE_INTERS),
+            ViBillPosition.POS_QR_CREATE_NATIVE,
+            mBinding.layoutNativeAd
+        )
+    }
 
     override fun inflateBinding(): ActivityQrcodeDataGenBinding {
         return ActivityQrcodeDataGenBinding.inflate(layoutInflater)
@@ -64,7 +77,7 @@ class QRCodeDataGenActivity : BaseActivity<ActivityQrcodeDataGenBinding>() {
         )
 
         mBinding.btnGen.setOnClickListener {
-            genCode()
+           billHelper.showAd { genCode() }
         }
     }
 

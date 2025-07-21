@@ -109,7 +109,7 @@ class SmartNativeAdLayout : FrameLayout {
     }
 
     private fun createAdViewNormal(): NativeAdView {
-        NativeAdBinding.inflate(LayoutInflater.from(context)).run {
+        NativeAd2Binding.inflate(LayoutInflater.from(context)).run {
             adView.headlineView = adTitle
             adView.bodyView = adDescription
             adView.mediaView = adMedia
@@ -120,7 +120,7 @@ class SmartNativeAdLayout : FrameLayout {
     }
 
     private fun createAdViewNormal2(): NativeAdView {
-        NativeAd2Binding.inflate(LayoutInflater.from(context)).run {
+        NativeAdBinding.inflate(LayoutInflater.from(context)).run {
             adView.headlineView = adTitle
             adView.bodyView = adDescription
             adView.mediaView = adMedia

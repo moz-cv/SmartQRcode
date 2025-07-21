@@ -10,6 +10,9 @@ import com.google.zxing.BarcodeFormat
 import com.szr.co.smart.qr.R
 import com.szr.co.smart.qr.activity.GenResultActivity
 import com.szr.co.smart.qr.activity.base.BaseActivity
+import com.szr.co.smart.qr.activity.base.BaseAdActivity
+import com.szr.co.smart.qr.bill.ViBillHelper
+import com.szr.co.smart.qr.bill.position.ViBillPosition
 import com.szr.co.smart.qr.databinding.ActivityScanResultBinding
 import com.szr.co.smart.qr.room.AppDB
 import com.szr.co.smart.qr.room.model.QRDataModel
@@ -24,7 +27,7 @@ import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 
 
-class ScanResultActivity : BaseActivity<ActivityScanResultBinding>() {
+class ScanResultActivity : BaseAdActivity<ActivityScanResultBinding>() {
 
 
     companion object {
@@ -33,6 +36,16 @@ class ScanResultActivity : BaseActivity<ActivityScanResultBinding>() {
             intent.putExtra("data", data)
             context.startActivity(intent)
         }
+    }
+
+    override val billHelper: ViBillHelper by lazy {
+        ViBillHelper(
+            this,
+            ViBillPosition.POS_QR_CLICK_SAVE_INTERS,
+            mutableListOf(ViBillPosition.POS_QR_RESULT_NATIVE, ViBillPosition.POS_QR_CLICK_SAVE_INTERS),
+            ViBillPosition.POS_QR_RESULT_NATIVE,
+            mBinding.layoutNativeAd
+        )
     }
 
     private var mData: QRDataModel? = null
@@ -59,10 +72,13 @@ class ScanResultActivity : BaseActivity<ActivityScanResultBinding>() {
         fillResultQrInfo()
 
         mBinding.layoutSave.setOnClickListener {
-            //保存数据到数据库
-            lifecycleScope.launch(Dispatchers.IO) {
-                if (mData != null) AppDB.db.qrDataDao().insert(mData!!)
-                withContext(Dispatchers.Main) { toast(getString(R.string.saved_successfully)) }
+
+            billHelper.showAd {
+                //保存数据到数据库
+                lifecycleScope.launch(Dispatchers.IO) {
+                    if (mData != null) AppDB.db.qrDataDao().insert(mData!!)
+                    withContext(Dispatchers.Main) { toast(getString(R.string.saved_successfully)) }
+                }
             }
         }
 

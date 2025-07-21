@@ -61,14 +61,9 @@ object ViPositionHelper {
     }
 
 
-    fun getBill(position: ViBillPosition, isFillIn: Boolean = false): ViBaseBill? {
+    fun getBill(position: ViBillPosition): ViBaseBill? {
         if (!openBillPosition(position)) return null
-        var bill = position.type.getBill()
-        if (bill != null) return bill
-        if (isFillIn) {
-            bill = position.fillInType?.getBill()
-        }
-        return bill
+        return position.type.getBill()
     }
 
 

@@ -4,7 +4,10 @@ import android.content.Intent
 import androidx.core.view.isVisible
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.szr.co.smart.qr.activity.base.BaseActivity
+import com.szr.co.smart.qr.activity.base.BaseAdActivity
 import com.szr.co.smart.qr.adapter.AppLangAdapter
+import com.szr.co.smart.qr.bill.ViBillHelper
+import com.szr.co.smart.qr.bill.position.ViBillPosition
 import com.szr.co.smart.qr.data.DataSetting
 import com.szr.co.smart.qr.databinding.ActivityLanguageBinding
 import com.szr.co.smart.qr.event.EventLanguageSwitch
@@ -12,11 +15,25 @@ import com.szr.co.smart.qr.manager.UserManager
 import com.szr.co.smart.qr.utils.AppLangUtils
 import org.greenrobot.eventbus.EventBus
 
-class LanguageActivity : BaseActivity<ActivityLanguageBinding>(), AppLangAdapter.Callback {
+class LanguageActivity : BaseAdActivity<ActivityLanguageBinding>(), AppLangAdapter.Callback {
+
+
+    override val billHelper: ViBillHelper by lazy {
+        ViBillHelper(
+            this,
+            ViBillPosition.POS_LAN_INTERS,
+            mutableListOf(ViBillPosition.POS_MAIN_NATIVE, ViBillPosition.POS_MAIN_CLICK_INTERS),
+            ViBillPosition.POS_LAN_NATIVE,
+            mBinding.layoutNativeAd
+        )
+    }
 
     override fun inflateBinding(): ActivityLanguageBinding {
         return ActivityLanguageBinding.inflate(layoutInflater)
     }
+
+    override val showBackAd: Boolean
+        get() = DataSetting.instance.langGuide
 
     override fun initOnCreate() {
         super.initOnCreate()
@@ -28,7 +45,9 @@ class LanguageActivity : BaseActivity<ActivityLanguageBinding>(), AppLangAdapter
             if (selectIndex == -1) return@setOnClickListener
             val lang = langList[selectIndex]
             AppLangUtils.switchLanguage(this, lang)
-            applyLang()
+            billHelper.showAd {
+                applyLang()
+            }
         }
         mAdapter.callback = this
         getLangData()

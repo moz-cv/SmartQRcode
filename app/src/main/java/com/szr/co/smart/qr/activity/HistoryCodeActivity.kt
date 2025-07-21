@@ -16,7 +16,10 @@ import androidx.paging.cachedIn
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.szr.co.smart.qr.R
 import com.szr.co.smart.qr.activity.base.BaseActivity
+import com.szr.co.smart.qr.activity.base.BaseAdActivity
 import com.szr.co.smart.qr.adapter.QRHistoryAdapter
+import com.szr.co.smart.qr.bill.ViBillHelper
+import com.szr.co.smart.qr.bill.position.ViBillPosition
 import com.szr.co.smart.qr.databinding.ActivityHistoryCodeBinding
 import com.szr.co.smart.qr.room.AppDB
 import com.szr.co.smart.qr.room.model.QRDataModel
@@ -32,7 +35,7 @@ import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import kotlin.compareTo
 
-class HistoryCodeActivity : BaseActivity<ActivityHistoryCodeBinding>() {
+class HistoryCodeActivity : BaseAdActivity<ActivityHistoryCodeBinding>() {
 
     @Retention(AnnotationRetention.SOURCE)
     annotation class Type {
@@ -42,6 +45,22 @@ class HistoryCodeActivity : BaseActivity<ActivityHistoryCodeBinding>() {
 
         }
     }
+
+    override val billHelper: ViBillHelper by lazy {
+        ViBillHelper(
+            this,
+            null,
+            mutableListOf(
+                ViBillPosition.POS_MAIN_NATIVE,
+                ViBillPosition.POS_MAIN_CLICK_INTERS
+            ),
+            ViBillPosition.POS_HISTORY_NATIVE,
+            mBinding.layoutNativeAd
+        )
+    }
+
+    override val showBackAd: Boolean
+        get() = true
 
     private lateinit var dataList: Flow<PagingData<QRDataModel>>
 

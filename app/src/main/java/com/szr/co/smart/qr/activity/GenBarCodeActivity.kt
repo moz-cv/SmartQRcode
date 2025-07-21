@@ -5,14 +5,17 @@ import android.content.Intent
 import androidx.recyclerview.widget.GridLayoutManager
 import com.szr.co.smart.qr.R
 import com.szr.co.smart.qr.activity.base.BaseActivity
+import com.szr.co.smart.qr.activity.base.BaseAdActivity
 import com.szr.co.smart.qr.adapter.BarCodeTypeAdapter
+import com.szr.co.smart.qr.bill.ViBillHelper
+import com.szr.co.smart.qr.bill.position.ViBillPosition
 import com.szr.co.smart.qr.databinding.ActivityGenBarCodeBinding
 import com.szr.co.smart.qr.model.BarCodeTypeModel
 import com.szr.co.smart.qr.model.QRCodeType
 import com.szr.co.smart.qr.utils.dpToPx
 import com.szr.co.smart.qr.view.ItemGridDecoration
 
-class GenBarCodeActivity : BaseActivity<ActivityGenBarCodeBinding>() {
+class GenBarCodeActivity : BaseAdActivity<ActivityGenBarCodeBinding>() {
 
 
     companion object {
@@ -21,6 +24,19 @@ class GenBarCodeActivity : BaseActivity<ActivityGenBarCodeBinding>() {
             intent.putExtra("bg_id", bgId)
             context.startActivity(intent)
         }
+    }
+
+    override val billHelper: ViBillHelper by lazy {
+        ViBillHelper(
+            this,
+            null,
+            mutableListOf(
+                ViBillPosition.POS_MAIN_NATIVE,
+                ViBillPosition.POS_MAIN_CLICK_INTERS
+            ),
+            null,
+            null,
+        )
     }
 
     private val typeList = arrayListOf<BarCodeTypeModel>(
@@ -36,6 +52,9 @@ class GenBarCodeActivity : BaseActivity<ActivityGenBarCodeBinding>() {
     )
 
     private lateinit var mAdapter: BarCodeTypeAdapter
+
+    override val showBackAd: Boolean
+        get() = true
 
     override fun inflateBinding(): ActivityGenBarCodeBinding {
         return ActivityGenBarCodeBinding.inflate(layoutInflater)

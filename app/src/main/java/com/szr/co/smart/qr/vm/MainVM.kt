@@ -28,7 +28,7 @@ class MainVM : ViewModel() {
         mJob?.cancel()
         mJob = viewModelScope.launch(Dispatchers.IO) {
             mVideo = HttpLogic.startParseVideoByUrl(url)
-            status.postValue(1)
+            if (mVideo != null) status.postValue(1) else status.postValue(2)
         }
     }
 

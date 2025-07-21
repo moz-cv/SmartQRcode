@@ -6,6 +6,7 @@ import com.google.firebase.remoteconfig.ConfigUpdateListener
 import com.google.firebase.remoteconfig.FirebaseRemoteConfigException
 import com.google.firebase.remoteconfig.ktx.remoteConfig
 import com.szr.co.smart.qr.manager.UserManager
+import com.szr.co.smart.qr.model.AppSwitchType
 import com.szr.co.smart.qr.utils.Utils
 import kotlin.apply
 import kotlin.run
@@ -27,15 +28,14 @@ class FireRemoteConf {
         mCallback = callback
         Firebase.remoteConfig.run {
             setDefaultsAsync(hashMapOf<String?, Any?>().apply {
-                //TODO
-                put("sq_start_type", 1)
+                put("sq_start_type", AppSwitchType.buser.ordinal)
                 put(
                     "sq_ad_conf",
-                    "ewogICAgInNxX25hdGkiOiB7CiAgICAgICAgInNxX2t5X2xpc3QiOiBbCiAgICAgICAgICAgIHsKICAgICAgICAgICAgICAgICJzcV9reSI6ICJjYS1hcHAtcHViLTM5NDAyNTYwOTk5NDI1NDQvMjI0NzY5NjExMCIsCiAgICAgICAgICAgICAgICAic3FfcHIiOiAxCiAgICAgICAgICAgIH0KICAgICAgICBdLAogICAgICAgICJzcV9teF9jIjogMgogICAgfSwKICAgICJzcV9wbGEiOiB7CiAgICAgICAgInNxX2t5X2xpc3QiOiBbCiAgICAgICAgICAgIHsKICAgICAgICAgICAgICAgICJzcV9reSI6ICJjYS1hcHAtcHViLTM5NDAyNTYwOTk5NDI1NDQvMTAzMzE3MzcxMiIsCiAgICAgICAgICAgICAgICAic3FfcHIiOiAxCiAgICAgICAgICAgIH0KICAgICAgICBdLAogICAgICAgICJzcV9teF9jIjogMgogICAgfSwKICAgICJzcV9zcGwiOiB7CiAgICAgICAgInNxX2t5X2xpc3QiOiBbCiAgICAgICAgICAgIHsKICAgICAgICAgICAgICAgICJzcV9reSI6ICJjYS1hcHAtcHViLTM5NDAyNTYwOTk5NDI1NDQvOTI1NzM5NTkyMSIsCiAgICAgICAgICAgICAgICAic3FfcHIiOiAxCiAgICAgICAgICAgIH0KICAgICAgICBdLAogICAgICAgICJzcV9teF9jIjogMQogICAgfQp9"
+                    "ewogICAgInNxX25hdGkiOiB7CiAgICAgICAgInNxX2t5X2xpc3QiOiBbCiAgICAgICAgICAgIHsKICAgICAgICAgICAgICAgICJzcV9reSI6ICJjYS1hcHAtcHViLTM5NDAyNTYwOTk5NDI1NDQvMjI0NzY5NjExMCIsCiAgICAgICAgICAgICAgICAic3FfcHIiOiAxCiAgICAgICAgICAgIH0KICAgICAgICBdLAogICAgICAgICJzcV9teF9jIjogMgogICAgfSwKICAgICJzcV9wbGEiOiB7CiAgICAgICAgInNxX2t5X2xpc3QiOiBbCiAgICAgICAgICAgIHsKICAgICAgICAgICAgICAgICJzcV9reSI6ICJjYS1hcHAtcHViLTM5NDAyNTYwOTk5NDI1NDQvMTAzMzE3MzcxMiIsCiAgICAgICAgICAgICAgICAic3FfcHIiOiAxCiAgICAgICAgICAgIH0KICAgICAgICBdLAogICAgICAgICJzcV9teF9jIjogMgogICAgfSwKICAgICJzcV9zcGwiOiB7CiAgICAgICAgInNxX2t5X2xpc3QiOiBbCiAgICAgICAgICAgIHsKICAgICAgICAgICAgICAJInN1Yl90eXBlIjoicGxhIiwKICAgICAgICAgICAgICAgICJzcV9reSI6ICJjYS1hcHAtcHViLTM5NDAyNTYwOTk5NDI1NDQvMTAzMzE3MzcxMiIsCiAgICAgICAgICAgICAgICAic3FfcHIiOiAxCiAgICAgICAgICAgIH0sCiAgICAgICAgICB7CiAgICAgICAgICAgIAkic3ViX3R5cGUiOiJzcGwiLAogICAgICAgICAgICAgICAgInNxX2t5IjogImNhLWFwcC1wdWItMzk0MDI1NjA5OTk0MjU0NC85MjU3Mzk1OTIxIiwKICAgICAgICAgICAgICAgICJzcV9wciI6IDEKICAgICAgICAgICAgfQogICAgICAgIF0sCiAgICAgICAgInNxX214X2MiOiAxCiAgICB9Cn0="
                 )
                 put(
                     "sq_adp_conf",
-                    "ewogICAgIm1hZ2ljX3N0YXJ0IjogMiwKICAgICJtYWdpY19sYW5fbmF0aSI6IDEsCiAgICAibWFnaWNfbGFuX2ludGVycyI6IDEsCiAgICAibWFnaWNfcGFyX2NvbV9pbnRlcnMiOiAyLAogICAgIm1hZ2ljX3Bhcl9uYXRpIjogMSwKICAgICJtYWdpY19wYXJfY2xpX2Rvd25faW50ZXJzIjogMSwKICAgICJtYWdpY19iYWNrX2ludGVycyI6IDEsCiAgICAibWFnaWNfaG1fY2xrX2ludGVycyI6IDEsCiAgICAibWFnaWNfZG93bl9zdWNfbmF0aSI6IDEsCiAgICAibWFnaWNfY2xrX3ZpZGVvc19pbnRlcnMiOiAxLAogICAgIm1hZ2ljX3NldF9uYXRpIjogMSwKICAgICJtYWdpY19leF9uYXRpIjogMSwKICAgICJtYWdpY19kb3duaW5nX25hdGkiOiAxLAogICAgIm1hZ2ljX2htX25hdGkiOiAyCn0="
+                    "eyJzcV9zdGFydCI6Miwic3FfbG5nX24iOjIsInNxX2xuZ19pIjoxLCJzcV9iYWNrX2kiOjEsInNxX21fY2xrX2kiOjEsInNxX21fbiI6Miwic3FfaGlzdG9yeV9uIjoyLCJzcV9xcmNfbiI6MSwic3FfcXJjX2Nsa19pIjoyLCJzcV9xcl9yZXN1bHRfbiI6Miwic3FfcXJfY2xrX3NhdmVfaSI6MSwic3FfcXJfc2Nhbl9pIjoxLCJzcV9xcl9zY2FuX24iOjF9"
                 )
                 put(
                     "sq_default_url",
@@ -96,11 +96,5 @@ class FireRemoteConf {
     val changeUserTypeTime: Int
         get() {
             return Firebase.remoteConfig.getLong("sq_user_ctime").toInt()
-        }
-
-    val defaultParseUrl: String
-        get() {
-            val url = Firebase.remoteConfig.getString("sqc_default_url")
-            return Utils.decodeBase64(url)
         }
 }

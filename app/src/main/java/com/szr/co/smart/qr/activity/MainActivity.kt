@@ -14,7 +14,10 @@ import androidx.recyclerview.widget.GridLayoutManager
 import com.szr.co.smart.qr.BuildConfig
 import com.szr.co.smart.qr.R
 import com.szr.co.smart.qr.activity.base.BaseActivity
+import com.szr.co.smart.qr.activity.base.BaseAdActivity
 import com.szr.co.smart.qr.adapter.MainQrSrcAdapter
+import com.szr.co.smart.qr.bill.ViBillHelper
+import com.szr.co.smart.qr.bill.position.ViBillPosition
 import com.szr.co.smart.qr.data.DataSetting
 import com.szr.co.smart.qr.databinding.ActivityMainBinding
 import com.szr.co.smart.qr.dialog.HistoryMenuDialog
@@ -33,7 +36,7 @@ import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 
-class MainActivity : BaseActivity<ActivityMainBinding>() {
+class MainActivity : BaseAdActivity<ActivityMainBinding>() {
 
 
     private lateinit var mAdapter: MainQrSrcAdapter
@@ -42,6 +45,23 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
 
     private var mWaitingDialog: WaitingDialog? = null
     private var startPostPerTime = 0L
+
+    override val billHelper: ViBillHelper by lazy {
+        ViBillHelper(
+            this,
+            ViBillPosition.POS_MAIN_CLICK_INTERS,
+            mutableListOf(
+                ViBillPosition.POS_MAIN_NATIVE,
+                ViBillPosition.POS_MAIN_CLICK_INTERS,
+                ViBillPosition.POS_QR_RESULT_NATIVE,
+                ViBillPosition.POS_QR_SCAN_INTERS,
+                ViBillPosition.POS_QR_CREATE_CLICK_INTERS
+            ),
+            ViBillPosition.POS_MAIN_NATIVE,
+            mBinding.layoutNativeAd,
+            true
+        )
+    }
 
     override fun inflateBinding(): ActivityMainBinding {
         return ActivityMainBinding.inflate(layoutInflater)
@@ -56,7 +76,9 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
 
         mBinding.recycleData.layoutManager = GridLayoutManager(this, 3)
         mAdapter = MainQrSrcAdapter(QrResLogic.listBgImages) {
-            startActivity(Intent(this, TemplatesActivity::class.java))
+            billHelper.showAd {
+                startActivity(Intent(this, TemplatesActivity::class.java))
+            }
         }
         mBinding.recycleData.adapter = mAdapter
         mBinding.recycleData.addItemDecoration(
@@ -69,18 +91,25 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
         )
 
         mBinding.layoutPopularTemplates.setOnClickListener {
-            startActivity(Intent(this, TemplatesActivity::class.java))
+            billHelper.showAd {
+                startActivity(Intent(this, TemplatesActivity::class.java))
+            }
+
         }
         mBinding.scan.setOnClickListener {
             startScan()
         }
 
         mBinding.layoutCreateQrcode.setOnClickListener {
-            GenQRCodeActivity.toGenType(this)
+            billHelper.showAd {
+                GenQRCodeActivity.toGenType(this)
+            }
         }
 
         mBinding.layoutCreateBarcode.setOnClickListener {
-            GenBarCodeActivity.toGenType(this)
+            billHelper.showAd {
+                GenBarCodeActivity.toGenType(this)
+            }
         }
 
         mBinding.icHistory.setOnClickListener {
@@ -169,8 +198,10 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
         mMainVM.status.observe(this) {
             when (it) {
                 1 -> {
+                    val data = mMainVM.mVideo?.url
+                    if (data.isNullOrEmpty()) return@observe
                     if (mQRCodeVideDialog?.isShowing == true) return@observe
-                    mQRCodeVideDialog = PushCodeDialog(this, "https://") {
+                    mQRCodeVideDialog = PushCodeDialog(this, data) {
                         mWaitingDialog = WaitingDialog(this)
                         mWaitingDialog?.show()
                         toScanResultVideo()

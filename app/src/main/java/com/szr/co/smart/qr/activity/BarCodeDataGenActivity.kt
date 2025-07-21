@@ -5,6 +5,9 @@ import android.content.Intent
 import androidx.lifecycle.lifecycleScope
 import com.szr.co.smart.qr.R
 import com.szr.co.smart.qr.activity.base.BaseActivity
+import com.szr.co.smart.qr.activity.base.BaseAdActivity
+import com.szr.co.smart.qr.bill.ViBillHelper
+import com.szr.co.smart.qr.bill.position.ViBillPosition
 import com.szr.co.smart.qr.databinding.ActivityBarCodeDataGenBinding
 import com.szr.co.smart.qr.logic.QrResLogic
 import com.szr.co.smart.qr.model.QRCodeType
@@ -15,7 +18,7 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 
-class BarCodeDataGenActivity : BaseActivity<ActivityBarCodeDataGenBinding>() {
+class BarCodeDataGenActivity : BaseAdActivity<ActivityBarCodeDataGenBinding>() {
     companion object {
         fun toGenData(context: Context, @QRCodeType type: Int, bgId: Int) {
             val intent = Intent(context, BarCodeDataGenActivity::class.java)
@@ -23,6 +26,16 @@ class BarCodeDataGenActivity : BaseActivity<ActivityBarCodeDataGenBinding>() {
             intent.putExtra("bg_id", bgId)
             context.startActivity(intent)
         }
+    }
+
+    override val billHelper: ViBillHelper by lazy {
+        ViBillHelper(
+            this,
+            ViBillPosition.POS_QR_CREATE_CLICK_INTERS,
+            mutableListOf(ViBillPosition.POS_QR_RESULT_NATIVE, ViBillPosition.POS_QR_CLICK_SAVE_INTERS),
+            ViBillPosition.POS_QR_CREATE_NATIVE,
+            mBinding.layoutNativeAd
+        )
     }
 
     private var qrCodeType: Int = QRCodeType.QRCODE_WEBSITE
@@ -48,7 +61,9 @@ class BarCodeDataGenActivity : BaseActivity<ActivityBarCodeDataGenBinding>() {
         mBinding.barCodeDataView.setType(qrCodeType)
 
         mBinding.buttonCreate.setOnClickListener {
-            genCode()
+            billHelper.showAd {
+                genCode()
+            }
         }
     }
 

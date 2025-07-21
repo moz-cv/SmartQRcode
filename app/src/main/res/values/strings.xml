@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">SmartQRcode</string>
+    <string name="app_name" translatable="false">Smart QRcode</string>
     <string name="qr_code">QR code</string>
     <string name="bar_code">Barcode </string>
     <string name="popular_templates">Popular Templates</string>
@@ -59,19 +59,19 @@
     <string name="scan_results">Scan results</string>
     <string name="qrcode_value">%1$s · QR Code</string>
     <string name="barcode_value">%1$s · BarCode</string>
-    <string name="data_is_empty">内容不能为空</string>
-    <string name="name_is_empty">姓名不能为空</string>
-    <string name="phone_is_empty">手机号不能为空</string>
-    <string name="phone_invalidate">手机号格式不正确</string>
-    <string name="email_invalidate">邮箱格式不正确</string>
-    <string name="wifi_invalidate">Wi-Fi名称不能为空</string>
-    <string name="url_not_empty">网址不能为空</string>
-    <string name="url_invalidate">网址格式不正确</string>
-    <string name="whatsapp_invalidate">Whatsapp链接格式不正确</string>
-    <string name="x_invalidate">X链接格式不正确</string>
-    <string name="ins_invalidate">Instagram链接格式不正确</string>
-    <string name="facebook_invalidate">Facebook链接格式不正确</string>
-    <string name="data_invalidate">格式不匹配</string>
+    <string name="data_is_empty">Content cannot be empty</string>
+    <string name="name_is_empty">Name cannot be empty</string>
+    <string name="phone_is_empty">Phone number cannot be empty</string>
+    <string name="phone_invalidate">Invalid phone number format</string>
+    <string name="email_invalidate">Invalid email format</string>
+    <string name="wifi_invalidate">Wi-Fi name cannot be empty</string>
+    <string name="url_not_empty">URL cannot be empty</string>
+    <string name="url_invalidate">Invalid URL format</string>
+    <string name="whatsapp_invalidate">Invalid WhatsApp link format</string>
+    <string name="x_invalidate">Invalid X link format</string>
+    <string name="ins_invalidate">Invalid Instagram link format</string>
+    <string name="facebook_invalidate">Invalid Facebook link format</string>
+    <string name="data_invalidate">Format does not match</string>
     <string name="create_type">Create Type</string>
     <string name="share">Share</string>
     <string name="copied">Copied!</string>
