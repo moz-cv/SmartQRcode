@@ -1,4 +1,74 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string-array name="push_til">
+        <item>Warme Freude, wenn du an meinen Lieblingssnack denkst</item>
+        <item>Nervöses Kribbeln vor unserem ersten Gruppentreffen</item>
+        <item>Sanfte Traurigkeit, als du deine alte Gitarre spendest</item>
+        <item>Strahlender Stolz, wenn du einem Nachbarn hilfst, einen Zaun zu reparieren</item>
+        <item>Warmes Kribbeln, wenn du über meine Nachahmung lachst</item>
+        <item>Enge Sorge, wenn du in einer Hitzewelle draußen bist</item>
+        <item>Süße Nostalgie beim Besuch unseres ersten Picknickplatzes</item>
+        <item>Ausgelassene Vorfreude bei der Planung unseres Spieleabends</item>
+        <item>Zarte Tränen während deiner Dankesrede</item>
+        <item>Warmes Leuchten, wenn du mein Lieblingsgedicht zitierst</item>
+        <item>Unruhige Vorfreude auf deinen Töpferkurs</item>
+        <item>Leichte Scham, nachdem du unsere Spaziergangspläne vergessen hast</item>
+        <item>Helle Freude, wenn unsere Katzen sich zusammenrollen</item>
+        <item>Tiefe Ruhe beim Sternegucken neben dir</item>
+        <item>Heller Funke, wenn du einen Buchladenbesuch vorschlägst</item>
+        <item>Enge Angst vor deiner Kunstausstellung</item>
+        <item>Warme Freude, wenn du mich deinen Freunden erwähnst</item>
+        <item>Sanfte Traurigkeit beim Sortieren deiner alten Sporttrophäen</item>
+        <item>Stechender Schmerz beim Anblick deiner alten Schulzeugnisse</item>
+        <item>Leichtes Flattern, wenn du meinen Schal trägst</item>
+        <item>Tiefe Dankbarkeit für deine Hilfe beim Umzug</item>
+        <item>Nervöses Hüpfen vor unserem Roadtrip</item>
+        <item>Warmes Leuchten über dein selbstgemachtes Weihnachtsgeschenk</item>
+        <item>Enge Umarmung der Freude über deinen Wettbewerbssieg</item>
+        <item>Leichter Schmerz, wenn du unseren wöchentlichen Spaziergang verpasst</item>
+        <item>Strahlende Hoffnung in dein "Wir werden es versprechen"</item>
+        <item>Warmes Kribbeln, wenn du über meine albernen Imitationen lachst</item>
+        <item>Schwere Schuld nach einer gedankenlosen Handlung</item>
+        <item>Heller Funke, wenn du mein Kochbuch ausleihst</item>
+        <item>Ruhige Entspannung, wenn du mir vor dem Schlafengehen vorliest</item>
+        <item>Strahlende Begeisterung über deine "Ich habe Museumstickets für uns"-Nachricht</item>
+        <item>Enge Sorge, wenn du einen steilen Wanderweg gehst</item>
+        <item>Warme Erinnerung an dein erstes "Ich bin froh, dass wir uns getroffen haben"</item>
+    </string-array>
 
+    <string-array name="push_content">
+        <item>Teilen</item>
+        <item>Lächeln</item>
+        <item>Schnappen</item>
+        <item>Helfen</item>
+        <item>Imitieren</item>
+        <item>Schreiben</item>
+        <item>Auspacken</item>
+        <item>Versammeln</item>
+        <item>Klatschen</item>
+        <item>Rezitieren</item>
+        <item>Malen</item>
+        <item>Holen</item>
+        <item>Fotografieren</item>
+        <item>Zeigen</item>
+        <item>Durchstöbern</item>
+        <item>Vorbereiten</item>
+        <item>Begrüßen</item>
+        <item>Ausstellen</item>
+        <item>Lachen</item>
+        <item>Stecken</item>
+        <item>Behandeln</item>
+        <item>Karte</item>
+        <item>Umarmen</item>
+        <item>Feiern</item>
+        <item>Neu planen</item>
+        <item>Versuchen</item>
+        <item>Aufführen</item>
+        <item>Reparieren</item>
+        <item>Notieren</item>
+        <item>Zuhören</item>
+        <item>Erkunden</item>
+        <item>Prüfen</item>
+        <item>Zustimmen</item>
+    </string-array>
 </resources>

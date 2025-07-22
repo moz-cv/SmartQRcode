@@ -1,4 +1,74 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string-array name="push_til">
+        <item>Calidez al recordar mi snack favorito</item>
+        <item>Emoción nerviosa antes de nuestra primera cita grupal</item>
+        <item>Tristeza suave al donar tu vieja guitarra</item>
+        <item>Orgullo brillante cuando ayudas a un vecino a reparar una cerca</item>
+        <item>Calidez tierna cuando te ríes de mi imitación</item>
+        <item>Preocupación cuando estás afuera en una ola de calor</item>
+        <item>Dulce nostalgia al visitar nuestro primer lugar de picnic</item>
+        <item>Emoción alegre al planear nuestra noche de juegos</item>
+        <item>Lágrimas tiernas durante tu discurso de aceptación del premio</item>
+        <item>Brillo cálido cuando citas mi poema favorito</item>
+        <item>Expectación inquieta antes de tu clase de cerámica</item>
+        <item>Vergüenza suave después de olvidar nuestros planes de caminata</item>
+        <item>Alegría ligera cuando nuestros gatos se acurrucan juntos</item>
+        <item>Calma profunda mientras miramos las estrellas juntos</item>
+        <item>Chispa brillante cuando sugieres una visita a la librería</item>
+        <item>Nudo de ansiedad antes de tu exposición de arte</item>
+        <item>Emoción cálida cuando me mencionas a tus amigos</item>
+        <item>Tristeza suave al ordenar tus viejos trofeos deportivos</item>
+        <item>Dolor agudo al ver tus boletines de notas de la infancia</item>
+        <item>Emoción ligera cuando usas mi bufanda</item>
+        <item>Gratitud profunda por tu ayuda con la mudanza</item>
+        <item>Nerviosismo antes de nuestro viaje por carretera</item>
+        <item>Brillo cálido por tu regalo navideño hecho a mano</item>
+        <item>Alegría intensa por tu victoria en el concurso</item>
+        <item>Dolor suave cuando faltas a nuestra caminata semanal</item>
+        <item>Esperanza brillante en tu promesa "lo intentaremos"</item>
+        <item>Calidez tierna cuando te ríes de mis impresiones tontas</item>
+        <item>Peso de culpa después de una acción inconsciente</item>
+        <item>Chispa ligera cuando tomas prestado mi libro de recetas</item>
+        <item>Tranquilidad cuando me lees antes de dormir</item>
+        <item>Emoción brillante por tu noticia "conseguí entradas para el museo"</item>
+        <item>Preocupación cuando haces una caminata empinada</item>
+        <item>Recuerdo cálido de tu primer "me alegra que nos conociéramos"</item>
+    </string-array>
 
+    <string-array name="push_content">
+        <item>Compartir</item>
+        <item>Sonreír</item>
+        <item>Tomar foto</item>
+        <item>Ayudar</item>
+        <item>Imitar</item>
+        <item>Mensajear</item>
+        <item>Desempacar</item>
+        <item>Reunir</item>
+        <item>Aplaudir</item>
+        <item>Recitar</item>
+        <item>Pintar</item>
+        <item>Traer</item>
+        <item>Capturar</item>
+        <item>Señalar</item>
+        <item>Hojear</item>
+        <item>Preparar</item>
+        <item>Saludar</item>
+        <item>Exhibir</item>
+        <item>Reír</item>
+        <item>Acomodar</item>
+        <item>Consentir</item>
+        <item>Mapear</item>
+        <item>Abrazar</item>
+        <item>Celebrar</item>
+        <item>Reprogramar</item>
+        <item>Intentar</item>
+        <item>Actuar</item>
+        <item>Arreglar</item>
+        <item>Anotar</item>
+        <item>Escuchar</item>
+        <item>Explorar</item>
+        <item>Verificar</item>
+        <item>Asentir</item>
+    </string-array>
 </resources>

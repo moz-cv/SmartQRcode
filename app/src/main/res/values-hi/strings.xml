@@ -98,4 +98,5 @@
     <string name="allow">अनुमति दें</string>
     <string name="please_url">कृपया लिंक दर्ज करें</string>
     <string name="please_phone_number">कृपया फोन नंबर दर्ज करें</string>
+    <string name="loading">लोड हो रहा है…</string>
 </resources>

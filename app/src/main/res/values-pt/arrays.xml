@@ -1,4 +1,74 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string-array name="push_til">
+        <item>Calor suave quando você lembra do meu lanche favorito</item>
+        <item>Frio na barriga antes do nosso primeiro encontro em grupo</item>
+        <item>Tristeza gentil quando você doa seu violão antigo</item>
+        <item>Orgulho radiante quando você ajuda um vizinho a consertar a cerca</item>
+        <item>Fofura quente quando você ri da minha imitação</item>
+        <item>Aperto de preocupação quando você está fora em uma onda de calor</item>
+        <item>Doce nostalgia revisitando nosso primeiro local de piquenique</item>
+        <item>Felicidade animada planejando nossa noite de jogos</item>
+        <item>Lágrimas ternas durante seu discurso de aceitação do prêmio</item>
+        <item>Brilho quente quando você cita meu poema favorito</item>
+        <item>Antecipação inquieta antes da sua aula de cerâmica</item>
+        <item>Vergonha suave depois de esquecer nossos planos de caminhada</item>
+        <item>Alegria leve quando nossos gatos se aconchegam juntos</item>
+        <item>Calma profunda enquanto observamos as estrelas juntos</item>
+        <item>Faísca brilhante quando você sugere uma visita à livraria</item>
+        <item>Nó de ansiedade antes da sua exposição de arte</item>
+        <item>Ondas quentes quando você me menciona para seus amigos</item>
+        <item>Tristeza gentil organizando seus troféus esportivos antigos</item>
+        <item>Dor aguda vendo suas notas de infância</item>
+        <item>Frio na barriga leve quando você usa meu lenço</item>
+        <item>Gratidão profunda por sua ajuda na mudança</item>
+        <item>Agitação nervosa antes da nossa viagem</item>
+        <item>Brilho quente com seu presente de feriado feito à mão</item>
+        <item>Aperto de alegria com sua vitória na competição</item>
+        <item>Dor suave quando você perde nossa caminhada semanal</item>
+        <item>Esperança brilhante na sua promessa "vamos tentar"</item>
+        <item>Fofura quente quando você ri das minhas imitações bobas</item>
+        <item>Peso pesado de culpa após uma ação impensada</item>
+        <item>Faísca leve quando você pega meu livro de receitas emprestado</item>
+        <item>Acalmar quando você lê para mim antes de dormir</item>
+        <item>Emoção brilhante com sua notícia "consegui ingressos para o museu"</item>
+        <item>Preocupação quando você faz uma trilha íngreme</item>
+        <item>Memória quente do seu primeiro "que bom que nos conhecemos"</item>
+    </string-array>
 
+    <string-array name="push_content">
+        <item>Compartilhar</item>
+        <item>Sorrir</item>
+        <item>Foto</item>
+        <item>Ajudar</item>
+        <item>Imitar</item>
+        <item>Mensagem</item>
+        <item>Desempacotar</item>
+        <item>Reunir</item>
+        <item>Aplaudir</item>
+        <item>Recitar</item>
+        <item>Pintar</item>
+        <item>Buscar</item>
+        <item>Capturar</item>
+        <item>Apontar</item>
+        <item>Navegar</item>
+        <item>Preparar</item>
+        <item>Cumprimentar</item>
+        <item>Exibir</item>
+        <item>Rir</item>
+        <item>Colocar</item>
+        <item>Presentear</item>
+        <item>Mapear</item>
+        <item>Abraçar</item>
+        <item>Celebrar</item>
+        <item>Reagendar</item>
+        <item>Tentar</item>
+        <item>Atuar</item>
+        <item>Consertar</item>
+        <item>Anotar</item>
+        <item>Ouvir</item>
+        <item>Explorar</item>
+        <item>Verificar</item>
+        <item>Concordar</item>
+    </string-array>
 </resources>

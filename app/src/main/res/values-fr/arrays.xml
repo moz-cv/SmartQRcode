@@ -1,4 +1,74 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string-array name="push_til">
+        <item>Chaleur douce quand tu te souviens de mon en-cas préféré</item>
+        <item>Excitation nerveuse avant notre premier rendez-vous de groupe</item>
+        <item>Tristesse douce lorsque tu donnes ton ancienne guitare</item>
+        <item>Fierté éclatante quand tu aides un voisin à réparer une clôture</item>
+        <item>Chaleur tendre quand tu ris de mon imitation</item>
+        <item>Inquiétude lorsque tu es dehors pendant une canicule</item>
+        <item>Douce nostalgie en revisitant notre premier lieu de pique-nique</item>
+        <item>Joie folle en organisant notre soirée jeux</item>
+        <item>Larmes tendres pendant ton discours de remise de prix</item>
+        <item>Lueur chaude quand tu cites mon poème préféré</item>
+        <item>Impatience avant ton cours de poterie</item>
+        <item>Honte douce après avoir oublié nos plans de promenade</item>
+        <item>Joie légère quand nos chats se blottissent ensemble</item>
+        <item>Calme profond en regardant les étoiles à tes côtés</item>
+        <item>Étincelle brillante quand tu suggères une visite en librairie</item>
+        <item>"Nœud d'anxiété avant ton exposition d'art"</item>
+        <item>Émotion chaude quand tu me mentionnes à tes amis</item>
+        <item>Tristesse douce en rangeant tes vieux trophées sportifs</item>
+        <item>"Douleur vive en voyant tes bulletins scolaires d'enfance"</item>
+        <item>Frémissement léger quand tu portes mon écharpe</item>
+        <item>Profonde gratitude pour ton aide au déménagement</item>
+        <item>Excitation nerveuse avant notre road trip</item>
+        <item>Lueur chaude devant ton cadeau de Noël fait main</item>
+        <item>Joie intense lors de ta victoire au concours</item>
+        <item>Douleur douce quand tu manques notre promenade hebdomadaire</item>
+        <item>Espoir brillant dans ta promesse "nous essaierons"</item>
+        <item>Chaleur tendre quand tu ris de mes imitations ridicules</item>
+        <item>Poids de culpabilité après une action irréfléchie</item>
+        <item>Étincelle légère quand tu empruntes mon livre de recettes</item>
+        <item>Apaisement quand tu me lis une histoire avant de dormir</item>
+        <item>"Excitation brillante à l'annonce \"j'ai des billets pour le musée\""</item>
+        <item>Inquiétude quand tu fais une randonnée difficile</item>
+        <item>Souvenir chaleureux de ton premier "je suis content qu'on se soit rencontrés"</item>
+    </string-array>
 
+    <string-array name="push_content">
+        <item>Partager</item>
+        <item>Sourire</item>
+        <item>Prendre photo</item>
+        <item>Aider</item>
+        <item>Imiter</item>
+        <item>Envoyer SMS</item>
+        <item>Déballer</item>
+        <item>Rassembler</item>
+        <item>Applaudir</item>
+        <item>Réciter</item>
+        <item>Peindre</item>
+        <item>Chercher</item>
+        <item>Capturer</item>
+        <item>Pointer</item>
+        <item>Feuilleter</item>
+        <item>Préparer</item>
+        <item>Saluer</item>
+        <item>Exposer</item>
+        <item>Rire</item>
+        <item>Glisser</item>
+        <item>Gâter</item>
+        <item>Cartographier</item>
+        <item>Étreindre</item>
+        <item>Célébrer</item>
+        <item>Reprogrammer</item>
+        <item>Essayer</item>
+        <item>Jouer</item>
+        <item>Réparer</item>
+        <item>Noter</item>
+        <item>Écouter</item>
+        <item>Explorer</item>
+        <item>Vérifier</item>
+        <item>Approuver</item>
+    </string-array>
 </resources>

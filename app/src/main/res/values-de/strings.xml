@@ -98,4 +98,5 @@
     <string name="allow">Erlauben</string>
     <string name="please_url">Bitte Link eingeben</string>
     <string name="please_phone_number">Bitte Telefonnummer eingeben</string>
+    <string name="loading">Wird geladen…</string>
 </resources>

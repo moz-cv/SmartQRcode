@@ -1,80 +1,75 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+
     <string-array name="push_til">
-        <item>💃 Tempting elegance, click to meet!</item>
-        <item>👀 Exclusive allure, explore now!</item>
-        <item>💖 Secret charm, set it free!</item>
-        <item>🔥 Steamy grace, tap to reveal!</item>
-        <item>💃 Hidden beauty, find her fast!</item>
-        <item>👀 Irresistible spark, open up!</item>
-        <item>💖 Exclusive fire, seize it now!</item>
-        <item>🔥 Tantalizing flame, click here!</item>
-        <item>💃 Alluring whisper, let it out!</item>
-        <item>👀 Sensual spark, tap to see!</item>
-        <item>💖 Forbidden flame, explore deep!</item>
-        <item>🔥 Tempting warmth, come closer!</item>
-        <item>💃 Hidden shine, unlock today!</item>
-        <item>👀 Exclusive heat, grab it quick!</item>
-        <item>💖 Secret glow, give in to it!</item>
-        <item>🔥 Steamy warmth, tap to enjoy!</item>
-        <item>💃 Tempting light, don\'t resist!</item>
-        <item>👀 Alluring riddle, solve it fast!</item>
-        <item>💖 Sensual flame, uncover now!</item>
-        <item>🔥 Forbidden spark, ready to peek?</item>
-        <item>💃 Hidden shine, claim it today!</item>
-        <item>👀 Exclusive glow, explore more!</item>
-        <item>💖 Tempting flame, tap to find!</item>
-        <item>🔥 Steamy spark, act now!</item>
-        <item>💃 Hidden radiance, reveal it!</item>
-        <item>👀 Irresistible flame, open wide!</item>
-        <item>💖 Exclusive glow, grab hold!</item>
-        <item>🔥 Forbidden warmth, click quick!</item>
-        <item>💃 Tempting shine, explore far!</item>
-        <item>👀 Alluring glow, let it shine!</item>
-        <item>💖 Sensual shimmer, tap to enjoy!</item>
-        <item>🔥 Steamy surprise, don\'t miss!</item>
-        <item>💃 Hidden allure, unlock now!</item>
-        <item>👀 Exclusive vision, come see!</item>
-        <item>💖 Tempting charm, tap to find!</item>
-        <item>🔥 Sultry secret, tap to uncover!</item>
+        <item>Warm flutter when you remember my favorite snack</item>
+        <item>Nervous thrill before our first group date</item>
+        <item>Gentle sadness as you donate your old guitar</item>
+        <item>Bright pride when you help a neighbor fix a fence</item>
+        <item>Warm fuzz when you laugh at my mimicry</item>
+        <item>"Tight worry when you're out in a heatwave"</item>
+        <item>Sweet nostalgia revisiting our first picnic spot</item>
+        <item>Giddy excitement planning our game night</item>
+        <item>Tender tears during your award acceptance speech</item>
+        <item>Warm glow when you quote my favorite poem</item>
+        <item>Restless anticipation for your pottery class</item>
+        <item>Soft shame after forgetting our walk plans</item>
+        <item>Light joy when our cats curl up together</item>
+        <item>Deep calm while stargazing beside you</item>
+        <item>Bright spark when you suggest a bookstore trip</item>
+        <item>Tight knot of anxiety before your art exhibition</item>
+        <item>Warm rush when you mention me to your friends</item>
+        <item>Gentle sadness sorting your old sports trophies</item>
+        <item>Sharp pang seeing your childhood report cards</item>
+        <item>Light flutter when you wear my scarf</item>
+        <item>Deep gratitude for your help with moving</item>
+        <item>Nervous bounce before our road trip</item>
+        <item>Warm glow at your homemade holiday gift</item>
+        <item>Tight squeeze of joy at your competition win</item>
+        <item>Soft ache when you miss our weekly walk</item>
+        <item>Bright hope in your "we'll try" promise</item>
+        <item>Warm fuzz when you laugh at my silly impressions</item>
+        <item>Heavy weight of guilt after a thoughtless action</item>
+        <item>Light spark when you borrow my recipe book</item>
+        <item>Calm settle when you read to me before bed</item>
+        <item>Bright thrill at your "I got us museum tickets" news</item>
+        <item>Tight worry when you hike a steep trail</item>
+        <item>Warm memory of your first "I'm glad we met"</item>
     </string-array>
 
     <string-array name="push_content">
-        <item>Encounter</item>
-        <item>Traverse</item>
-        <item>Liberate</item>
-        <item>Unveil</item>
-        <item>Chase</item>
-        <item>Ignite</item>
-        <item>Grasp</item>
-        <item>Blaze</item>
-        <item>Echo</item>
-        <item>Kindle</item>
-        <item>Plunge</item>
-        <item>Near</item>
-        <item>Polish</item>
-        <item>Snatch</item>
-        <item>Submit</item>
-        <item>Cuddle</item>
-        <item>Bend</item>
-        <item>Crack</item>
-        <item>Dash</item>
-        <item>Flicker</item>
-        <item>Own</item>
-        <item>Scout</item>
-        <item>Seek</item>
-        <item>Move</item>
-        <item>Unmask</item>
-        <item>Unchain</item>
-        <item>Clench</item>
-        <item>Hit</item>
-        <item>Wander</item>
-        <item>Radiate</item>
-        <item>Savor</item>
+        <item>Share</item>
+        <item>Smile</item>
+        <item>Snap</item>
+        <item>Assist</item>
+        <item>Imitate</item>
+        <item>Text</item>
+        <item>Unpack</item>
+        <item>Gather</item>
+        <item>Clap</item>
+        <item>Recite</item>
+        <item>Paint</item>
+        <item>Fetch</item>
         <item>Capture</item>
-        <item>Unfasten</item>
-        <item>Behold</item>
-        <item>Track</item>
-        <item>Excavate</item>
+        <item>Point</item>
+        <item>Browse</item>
+        <item>Prepare</item>
+        <item>Greet</item>
+        <item>Display</item>
+        <item>Laugh</item>
+        <item>Tuck</item>
+        <item>Treat</item>
+        <item>Map</item>
+        <item>Hug</item>
+        <item>Celebrate</item>
+        <item>Reschedule</item>
+        <item>Attempt</item>
+        <item>Perform</item>
+        <item>Fix</item>
+        <item>Note</item>
+        <item>Listen</item>
+        <item>Explore</item>
+        <item>Check</item>
+        <item>Agree</item>
     </string-array>
 </resources>

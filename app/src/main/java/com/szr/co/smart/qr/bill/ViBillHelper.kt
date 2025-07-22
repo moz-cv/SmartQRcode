@@ -13,7 +13,7 @@ import com.szr.co.smart.qr.event.AppAdTrack
 
 class ViBillHelper(
     private val activity: BaseActivity<*>,
-    private val showIntersPos: ViBillPosition?,
+    val showIntersPos: ViBillPosition?,
     private val preloadPosList: MutableList<ViBillPosition>?,
     private val showNativePos: ViBillPosition? = null,
     var nativeAdLayout: SmartNativeAdLayout? = null,
@@ -41,8 +41,8 @@ class ViBillHelper(
 
     fun onResume() {
         if (isResume) preload()
-        if(skipAdOnce){
-            skipAdOnce =false
+        if (skipAdOnce) {
+            skipAdOnce = false
             return
         }
         if (showNativePos == null || nativeAdLayout == null) return
@@ -100,6 +100,7 @@ class ViBillHelper(
         AppAdTrack.logAdEnter(showIntersPos.position)
         showAd(ViPositionHelper.getBill(showIntersPos), dismiss)
     }
+
 
     fun showAd(position: ViBillPosition, dismiss: () -> Unit) {
         if (showIntersPos == null) {

@@ -1,4 +1,74 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string-array name="push_til">
+        <item>私のお気に入りのおやつを思い出した時の温かい気持ち</item>
+        <item>初めてのグループデート前のドキドキ</item>
+        <item>古いギターを寄付する時の穏やかな悲しみ</item>
+        <item>近所の人のフェンス修理を手伝った時の誇らしい気持ち</item>
+        <item>私の物まねを笑ってくれた時の温かい気持ち</item>
+        <item>熱波の中外出している時の心配</item>
+        <item>初めてピクニックした場所を訪れた時の懐かしさ</item>
+        <item>ゲームナイトの計画を立てる時のワクワク</item>
+        <item>受賞スピーチを見た時の感動の涙</item>
+        <item>私のお気に入りの詩を引用してくれた時の温かさ</item>
+        <item>陶芸クラス前の落ち着かない気持ち</item>
+        <item>散歩の約束を忘れた後の恥ずかしさ</item>
+        <item>猫たちが一緒に丸まっている時の小さな喜び</item>
+        <item>一緒に星空を見上げている時の深い安らぎ</item>
+        <item>本屋に行こうと提案してくれた時の嬉しさ</item>
+        <item>アート展前の緊張</item>
+        <item>友達に私のことを話してくれた時の温かい気持ち</item>
+        <item>古いスポーツトロフィーを整理する時の穏やかな悲しみ</item>
+        <item>子供時代の成績表を見た時の切ない気持ち</item>
+        <item>私のマフラーを着てくれた時の小さな喜び</item>
+        <item>引っ越しを手伝ってくれたことへの深い感謝</item>
+        <item>ロードトリップ前のドキドキ</item>
+        <item>手作りのホリデーギフトをもらった時の温かさ</item>
+        <item>コンテストで優勝した時の大きな喜び</item>
+        <item>毎週の散歩を欠席した時の寂しさ</item>
+        <item>"やってみる"という約束に感じた希望</item>
+        <item>私のふざけた物まねを笑ってくれた時の温かい気持ち</item>
+        <item>軽率な行動後の罪悪感</item>
+        <item>私のレシピ本を借りてくれた時の小さな喜び</item>
+        <item>寝る前に本を読んでくれた時の安らぎ</item>
+        <item>"美術館のチケット取ったよ"の知らせに感じた興奮</item>
+        <item>険しいトレイルをハイキングする時の心配</item>
+        <item>初めて"出会えてよかった"と言ってくれた時の温かい記憶</item>
+    </string-array>
 
+    <string-array name="push_content">
+        <item>共有</item>
+        <item>微笑む</item>
+        <item>撮影</item>
+        <item>助ける</item>
+        <item>真似る</item>
+        <item>メッセージ</item>
+        <item>開封</item>
+        <item>集める</item>
+        <item>拍手</item>
+        <item>朗読</item>
+        <item>描く</item>
+        <item>取ってくる</item>
+        <item>撮る</item>
+        <item>指さす</item>
+        <item>閲覧</item>
+        <item>準備</item>
+        <item>挨拶</item>
+        <item>展示</item>
+        <item>笑う</item>
+        <item>しまう</item>
+        <item>ごちそう</item>
+        <item>地図</item>
+        <item>抱擁</item>
+        <item>祝う</item>
+        <item>再スケジュール</item>
+        <item>試す</item>
+        <item>演じる</item>
+        <item>直す</item>
+        <item>メモ</item>
+        <item>聞く</item>
+        <item>探検</item>
+        <item>確認</item>
+        <item>同意</item>
+    </string-array>
 </resources>

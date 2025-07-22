@@ -98,4 +98,5 @@
     <string name="allow">السماح</string>
     <string name="please_url">الرجاء إدخال الرابط</string>
     <string name="please_phone_number">الرجاء إدخال رقم الهاتف</string>
+    <string name="loading">جاري التحميل…</string>
 </resources>

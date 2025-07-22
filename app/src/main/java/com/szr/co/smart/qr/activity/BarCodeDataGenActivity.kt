@@ -61,7 +61,7 @@ class BarCodeDataGenActivity : BaseAdActivity<ActivityBarCodeDataGenBinding>() {
         mBinding.barCodeDataView.setType(qrCodeType)
 
         mBinding.buttonCreate.setOnClickListener {
-            billHelper.showAd {
+            showAdDelayLoad {
                 genCode()
             }
         }

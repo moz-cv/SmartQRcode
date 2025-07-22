@@ -77,7 +77,7 @@ class QRCodeDataGenActivity : BaseAdActivity<ActivityQrcodeDataGenBinding>() {
         )
 
         mBinding.btnGen.setOnClickListener {
-           billHelper.showAd { genCode() }
+            showAdDelayLoad { genCode() }
         }
     }
 

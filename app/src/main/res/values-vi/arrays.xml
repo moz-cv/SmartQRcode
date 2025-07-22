@@ -1,4 +1,74 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string-array name="push_til">
+        <item>Hơi ấm khi bạn nhớ đến món ăn vặt yêu thích của tôi</item>
+        <item>Hồi hộp trước buổi hẹn nhóm đầu tiên của chúng ta</item>
+        <item>Nỗi buồn nhẹ khi bạn tặng cây guitar cũ</item>
+        <item>Niềm tự hào khi bạn giúp hàng xóm sửa hàng rào</item>
+        <item>Cảm giác ấm áp khi bạn cười trò tôi bắt chước</item>
+        <item>Lo lắng khi bạn ra ngoài trong đợt nóng</item>
+        <item>Hoài niệm ngọt ngào khi quay lại nơi picnic đầu tiên</item>
+        <item>Háo hức khi lên kế hoạch cho game night</item>
+        <item>Những giọt nước mắt xúc động trong bài phát biểu nhận giải</item>
+        <item>Ánh ấm khi bạn trích dẫn bài thơ tôi yêu thích</item>
+        <item>Bồn chồn trước buổi học làm gốm của bạn</item>
+        <item>Ngượng ngùng sau khi quên kế hoạch đi dạo</item>
+        <item>Niềm vui nhẹ khi mèo của chúng ta cuộn tròn bên nhau</item>
+        <item>Bình yên khi ngắm sao cùng bạn</item>
+        <item>Hứng khởi khi bạn đề nghị ghé hiệu sách</item>
+        <item>Lo âu trước triển lãm nghệ thuật của bạn</item>
+        <item>Ấm lòng khi bạn nhắc đến tôi với bạn bè</item>
+        <item>Buồn nhẹ khi sắp xếp lại chiếc cúp thể thao cũ</item>
+        <item>Nhói lòng khi xem lại bảng điểm thời nhỏ</item>
+        <item>Xao xuyến nhẹ khi bạn đeo khăn của tôi</item>
+        <item>Lòng biết ơn sâu sắc vì bạn giúp chuyển nhà</item>
+        <item>Nôn nao trước chuyến road trip</item>
+        <item>Ấm áp trước món quà tự tay bạn làm</item>
+        <item>Vui sướng khi bạn thắng cuộc thi</item>
+        <item>Buồn nhẹ khi bạn lỡ buổi đi dạo hàng tuần</item>
+        <item>Hy vọng trong lời hứa "chúng ta sẽ cố" của bạn</item>
+        <item>Ấm áp khi bạn cười trò nhại ngớ ngẩn của tôi</item>
+        <item>Áy náy sau hành động thiếu suy nghĩ</item>
+        <item>Vui nhẹ khi bạn mượn sách nấu ăn của tôi</item>
+        <item>Bình yên khi bạn đọc sách cho tôi trước khi ngủ</item>
+        <item>Phấn khích trước tin "tôi mua được vé vào viện bảo tàng rồi"</item>
+        <item>Lo lắng khi bạn đi bộ đường dốc</item>
+        <item>Kỷ niệm ấm áp về lần đầu bạn nói "rất vui vì chúng ta gặp nhau"</item>
+    </string-array>
 
+    <string-array name="push_content">
+        <item>Chia sẻ</item>
+        <item>Cười</item>
+        <item>Chụp</item>
+        <item>Giúp</item>
+        <item>Nhại</item>
+        <item>Nhắn</item>
+        <item>Mở</item>
+        <item>Tập hợp</item>
+        <item>Vỗ tay</item>
+        <item>Đọc</item>
+        <item>Vẽ</item>
+        <item>Lấy</item>
+        <item>Ghi lại</item>
+        <item>Chỉ</item>
+        <item>Xem</item>
+        <item>Chuẩn bị</item>
+        <item>Chào</item>
+        <item>Trưng bày</item>
+        <item>Cười</item>
+        <item>Gấp</item>
+        <item>Thết đãi</item>
+        <item>Bản đồ</item>
+        <item>Ôm</item>
+        <item>Mừng</item>
+        <item>Dời lịch</item>
+        <item>Thử</item>
+        <item>Diễn</item>
+        <item>Sửa</item>
+        <item>Ghi chú</item>
+        <item>Nghe</item>
+        <item>Khám phá</item>
+        <item>Kiểm tra</item>
+        <item>Đồng ý</item>
+    </string-array>
 </resources>

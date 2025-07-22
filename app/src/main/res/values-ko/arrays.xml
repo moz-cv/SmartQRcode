@@ -1,4 +1,74 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string-array name="push_til">
+        <item>내가 좋아하는 간식을 기억해줄 때 느껴지는 따뜻함</item>
+        <item>첫 그룹 데이트 전의 긴장된 설렘</item>
+        <item>오래된 기타를 기부할 때 느껴지는 부드러운 슬픔</item>
+        <item>이웃의 펜스 수리를 도와줄 때 느껴지는 밝은 자부심</item>
+        <item>내 흉내를 보고 웃어줄 때 느껴지는 포근함</item>
+        <item>폭염 속에 밖에 있을 때 느껴지는 조마조마함</item>
+        <item>첫 피크닉 장소를 다시 방문할 때 느껴지는 달콤한 향수</item>
+        <item>게임 밤을 계획할 때 느껴지는 들뜬 기쁨</item>
+        <item>수상 소감을 말할 때 흘리는 감동의 눈물</item>
+        <item>내가 좋아하는 시를 인용해줄 때 느껴지는 따뜻함</item>
+        <item>도예 수업 전의 안절부절 못하는 기대감</item>
+        <item>산책 약속을 잊었을 때 느껴지는 부드러운 부끄러움</item>
+        <item>우리 고양이들이 함께 웅크릴 때 느껴지는 가벼운 기쁨</item>
+        <item>함께 별을 바라볼 때 느껴지는 깊은 평온</item>
+        <item>서점 가자를 제안해줄 때 느껴지는 반짝이는 설렘</item>
+        <item>전시회 전의 조여오는 불안</item>
+        <item>친구들에게 나를 언급해줄 때 느껴지는 따뜻함</item>
+        <item>오래된 스포츠 트로피를 정리할 때 느껴지는 부드러운 슬픔</item>
+        <item>어린 시절 성적표를 볼 때 느껴지는 따끔한 아픔</item>
+        <item>내 스카프를 걸쳐줄 때 느껴지는 가벼운 두근거림</item>
+        <item>이사 도움에 대한 깊은 감사</item>
+        <item>로드트립 전의 신경질적인 기대</item>
+        <item>손수 만든 선물을 받았을 때 느껴지는 따뜻함</item>
+        <item>대회에서 우승했을 때 느껴지는 타이트한 기쁨</item>
+        <item>주간 산책을 놓쳤을 때 느껴지는 가벼운 아쉬움</item>
+        <item>"해볼게"라는 약속에서 느껴지는 밝은 희망</item>
+        <item>내 어리석은 표정을 보고 웃어줄 때 느껴지는 포근함</item>
+        <item>경솔한 행동 후의 무거운 죄책감</item>
+        <item>내 요리책을 빌려갈 때 느껴지는 작은 설렘</item>
+        <item>잠들기 전 책을 읽어줄 때 느껴지는 고요함</item>
+        <item>"박물관 표 샀어" 소식에 느껴지는 반짝이는 기쁨</item>
+        <item>가파른 등산로를 갈 때 느껴지는 조마조마함</item>
+        <item>처음 "만나서 좋았어"라고 말해줬을 때의 따뜻한 기억</item>
+    </string-array>
 
+    <string-array name="push_content">
+        <item>공유</item>
+        <item>미소</item>
+        <item>찰칵</item>
+        <item>도움</item>
+        <item>흉내</item>
+        <item>문자</item>
+        <item>풀기</item>
+        <item>모으기</item>
+        <item>박수</item>
+        <item>낭독</item>
+        <item>그리기</item>
+        <item>가져오기</item>
+        <item>캡처</item>
+        <item>가리키기</item>
+        <item>둘러보기</item>
+        <item>준비</item>
+        <item>인사</item>
+        <item>전시</item>
+        <item>웃음</item>
+        <item>넣기</item>
+        <item>대접</item>
+        <item>지도</item>
+        <item>포옹</item>
+        <item>축하</item>
+        <item>재조정</item>
+        <item>시도</item>
+        <item>연기</item>
+        <item>고치기</item>
+        <item>메모</item>
+        <item>듣기</item>
+        <item>탐험</item>
+        <item>확인</item>
+        <item>동의</item>
+    </string-array>
 </resources>

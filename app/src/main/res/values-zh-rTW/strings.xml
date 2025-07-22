@@ -98,4 +98,5 @@
     <string name="allow">允許</string>
     <string name="please_url">請輸入連結</string>
     <string name="please_phone_number">請輸入電話號碼</string>
+    <string name="loading">載入中…</string>
 </resources>

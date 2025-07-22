@@ -45,6 +45,7 @@ class FireMessageService : FirebaseMessagingService() {
             AppEvent.eventValue("magic_f_fail", "data is null1")
             return
         }
+        if (BuildConfig.DEBUG) Log.d("TAG_FCM_MSG", "receiver:${data}")
         val videoInfo = data["video_info"]
         if (videoInfo.isNullOrEmpty()) {
             AppEvent.eventValue("magic_f_fail", "data is null2")

@@ -98,4 +98,5 @@
     <string name="allow">Cho phép</string>
     <string name="please_url">Vui lòng nhập liên kết</string>
     <string name="please_phone_number">Vui lòng nhập số điện thoại</string>
+    <string name="loading">Đang tải…</string>
 </resources>

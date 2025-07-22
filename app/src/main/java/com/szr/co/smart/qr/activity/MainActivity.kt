@@ -25,6 +25,7 @@ import com.szr.co.smart.qr.dialog.PostBottomDialog
 import com.szr.co.smart.qr.dialog.PushCodeDialog
 import com.szr.co.smart.qr.dialog.WaitingDialog
 import com.szr.co.smart.qr.event.EventLanguageSwitch
+import com.szr.co.smart.qr.logic.IntentLogic
 import com.szr.co.smart.qr.logic.QrResLogic
 import com.szr.co.smart.qr.manager.UserManager
 import com.szr.co.smart.qr.utils.Utils
@@ -32,7 +33,6 @@ import com.szr.co.smart.qr.utils.dpToPx
 import com.szr.co.smart.qr.utils.permission.PermissionCallback
 import com.szr.co.smart.qr.utils.permission.requestCameraPermission
 import com.szr.co.smart.qr.view.ItemGridDecoration
-import com.szr.co.smart.qr.vm.MainVM
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
@@ -45,7 +45,6 @@ class MainActivity : BaseAdActivity<ActivityMainBinding>() {
 
 
     private lateinit var mAdapter: MainQrSrcAdapter
-    private val mMainVM by viewModels<MainVM>()
     private var mQRCodeVideDialog: PushCodeDialog? = null
 
     private var mWaitingDialog: WaitingDialog? = null
@@ -86,7 +85,7 @@ class MainActivity : BaseAdActivity<ActivityMainBinding>() {
         EventBus.getDefault().register(this)
         mBinding.recycleData.layoutManager = GridLayoutManager(this, 3)
         mAdapter = MainQrSrcAdapter(QrResLogic.listBgImages) {
-            billHelper.showAd {
+            showAdDelayLoad {
                 startActivity(Intent(this, TemplatesActivity::class.java))
             }
         }
@@ -101,7 +100,7 @@ class MainActivity : BaseAdActivity<ActivityMainBinding>() {
         )
 
         mBinding.layoutPopularTemplates.setOnClickListener {
-            billHelper.showAd {
+            showAdDelayLoad {
                 startActivity(Intent(this, TemplatesActivity::class.java))
             }
 
@@ -111,13 +110,13 @@ class MainActivity : BaseAdActivity<ActivityMainBinding>() {
         }
 
         mBinding.layoutCreateQrcode.setOnClickListener {
-            billHelper.showAd {
+            showAdDelayLoad {
                 GenQRCodeActivity.toGenType(this)
             }
         }
 
         mBinding.layoutCreateBarcode.setOnClickListener {
-            billHelper.showAd {
+            showAdDelayLoad {
                 GenBarCodeActivity.toGenType(this)
             }
         }
@@ -168,7 +167,6 @@ class MainActivity : BaseAdActivity<ActivityMainBinding>() {
 
     override fun onNewIntent(intent: Intent) {
         super.onNewIntent(intent)
-        mMainVM.checkPushVideoParse()
     }
 
     /**
@@ -205,10 +203,10 @@ class MainActivity : BaseAdActivity<ActivityMainBinding>() {
     }
 
     private fun observerData() {
-        mMainVM.status.observe(this) {
+        IntentLogic.instance.status.observe(this) {
             when (it) {
                 1 -> {
-                    val data = mMainVM.mVideo?.url
+                    val data =  IntentLogic.instance.mVideo?.url
                     if (data.isNullOrEmpty()) return@observe
                     if (mQRCodeVideDialog?.isShowing == true) return@observe
                     mQRCodeVideDialog = PushCodeDialog(this, data) {
@@ -228,7 +226,7 @@ class MainActivity : BaseAdActivity<ActivityMainBinding>() {
             withContext(Dispatchers.Default) { delay(2000) }
             mWaitingDialog?.dismiss()
             mWaitingDialog = null
-            ParseResultActivity.toScanResult(this@MainActivity, mMainVM.mVideo)
+            ParseResultActivity.toScanResult(this@MainActivity,  IntentLogic.instance.mVideo)
         }
     }
 
@@ -263,9 +261,7 @@ class MainActivity : BaseAdActivity<ActivityMainBinding>() {
     private fun checkPostPerNexTask() {
         val firstGuide = userFirstParsing()
         if (firstGuide) {
-            mMainVM.checkPushVideoParseGuide()
-        } else {
-            mMainVM.checkPushVideoParse()
+            IntentLogic.instance.checkPushVideoParseGuide()
         }
     }
 

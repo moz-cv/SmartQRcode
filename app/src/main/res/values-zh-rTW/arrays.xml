@@ -1,4 +1,74 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string-array name="push_til">
+        <item>當你記得我最愛的零食時的溫暖悸動</item>
+        <item>第一次團體約會前的緊張興奮</item>
+        <item>當你捐出舊吉他時的溫柔傷感</item>
+        <item>當你幫鄰居修理籬笆時的明亮自豪</item>
+        <item>當你因我的模仿而笑時的溫暖觸動</item>
+        <item>當你在熱浪中外出時的緊繃擔憂</item>
+        <item>重遊我們第一次野餐地點的甜蜜懷舊</item>
+        <item>籌劃遊戲之夜時的雀躍興奮</item>
+        <item>在你獲獎感言時的溫柔淚水</item>
+        <item>當你引用我最愛的詩時的溫暖光芒</item>
+        <item>陶藝課前的不安期待</item>
+        <item>忘記我們散步計劃後的淡淡羞愧</item>
+        <item>當我們的貓咪蜷縮在一起時的輕盈喜悅</item>
+        <item>與你並肩觀星時的深沉寧靜</item>
+        <item>當你提議去書店時的明亮火花</item>
+        <item>藝術展覽前的焦慮糾結</item>
+        <item>當你向朋友提到我時的溫暖悸動</item>
+        <item>整理舊運動獎盃時的溫柔感傷</item>
+        <item>看到你童年成績單時的尖銳刺痛</item>
+        <item>當你戴著我的圍巾時的輕微悸動</item>
+        <item>對你幫忙搬家時的深深感激</item>
+        <item>公路旅行前的神經質雀躍</item>
+        <item>收到你手作節日禮物時的溫暖光芒</item>
+        <item>你比賽獲勝時的緊握喜悅</item>
+        <item>當你錯過我們每週散步時的淡淡失落</item>
+        <item>你"我們會嘗試"承諾中的明亮希望</item>
+        <item>當你因我的滑稽模仿而笑時的溫暖觸動</item>
+        <item>輕率行為後的沉重罪惡感</item>
+        <item>當你借走我的食譜書時的細微火花</item>
+        <item>當你睡前為我朗讀時的平靜沉澱</item>
+        <item>聽到你"我買到博物館票了"消息時的明亮興奮</item>
+        <item>當你徒步陡峭山路時的緊繃擔憂</item>
+        <item>你第一次說"很高興認識你"的溫暖記憶</item>
+    </string-array>
 
+    <string-array name="push_content">
+        <item>分享</item>
+        <item>微笑</item>
+        <item>拍照</item>
+        <item>協助</item>
+        <item>模仿</item>
+        <item>傳訊</item>
+        <item>拆封</item>
+        <item>聚集</item>
+        <item>鼓掌</item>
+        <item>朗誦</item>
+        <item>繪畫</item>
+        <item>取來</item>
+        <item>捕捉</item>
+        <item>指向</item>
+        <item>瀏覽</item>
+        <item>準備</item>
+        <item>問候</item>
+        <item>展示</item>
+        <item>大笑</item>
+        <item>收好</item>
+        <item>款待</item>
+        <item>地圖</item>
+        <item>擁抱</item>
+        <item>慶祝</item>
+        <item>改期</item>
+        <item>嘗試</item>
+        <item>表演</item>
+        <item>修復</item>
+        <item>筆記</item>
+        <item>聆聽</item>
+        <item>探索</item>
+        <item>檢查</item>
+        <item>同意</item>
+    </string-array>
 </resources>
