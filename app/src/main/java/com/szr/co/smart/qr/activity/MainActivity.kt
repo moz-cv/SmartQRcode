@@ -4,20 +4,18 @@ import android.Manifest
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.os.Build
-import android.view.Gravity
 import androidx.activity.result.contract.ActivityResultContracts
-import androidx.activity.viewModels
 import androidx.appcompat.app.AlertDialog
 import androidx.core.view.GravityCompat
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.GridLayoutManager
 import com.szr.co.smart.qr.BuildConfig
 import com.szr.co.smart.qr.R
-import com.szr.co.smart.qr.activity.base.BaseActivity
 import com.szr.co.smart.qr.activity.base.BaseAdActivity
 import com.szr.co.smart.qr.adapter.MainQrSrcAdapter
 import com.szr.co.smart.qr.bill.ViBillHelper
 import com.szr.co.smart.qr.bill.position.ViBillPosition
+import com.szr.co.smart.qr.constant.Constants
 import com.szr.co.smart.qr.data.DataSetting
 import com.szr.co.smart.qr.databinding.ActivityMainBinding
 import com.szr.co.smart.qr.dialog.HistoryMenuDialog
@@ -141,6 +139,9 @@ class MainActivity : BaseAdActivity<ActivityMainBinding>() {
         }
         mBinding.layoutPp.setOnClickListener {
             lifecycleScope.launch {
+
+                Utils.openInBrowser(this@MainActivity, Constants.PP_LINK)
+
                 withContext(Dispatchers.Default) { delay(500) }
                 mBinding.drawerLayout.closeDrawer(GravityCompat.END)
             }
