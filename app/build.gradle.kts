@@ -21,7 +21,8 @@ android {
     compileSdk = 35
 
     defaultConfig {
-        applicationId = "com.szr.co.smart.qr"
+        //com.qr.qrscanner.barcodescanner.smartscanner
+        applicationId = ""
         minSdk = 26
         targetSdk = 35
         versionCode = 1
@@ -30,9 +31,21 @@ android {
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
 
+    signingConfigs {
+        create("release") {
+            storeFile = file("smart.jks")
+            storePassword = "smart34"
+            keyAlias = "smart"
+            keyPassword = "smart34"
+        }
+    }
+
     buildTypes {
         release {
-            isMinifyEnabled = false
+            isMinifyEnabled = true
+            isShrinkResources = true
+            isDebuggable = false
+            signingConfig = signingConfigs.getByName("release")
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro"
