@@ -4,12 +4,8 @@ import android.app.Activity
 import android.app.Application
 import android.content.Intent
 import android.os.Bundle
-import com.facebook.flipper.android.AndroidFlipperClient
-import com.facebook.flipper.plugins.databases.DatabasesFlipperPlugin
-import com.facebook.flipper.plugins.inspector.DescriptorMapping
-import com.facebook.flipper.plugins.inspector.InspectorFlipperPlugin
-import com.facebook.soloader.SoLoader
 import com.google.android.gms.ads.AdActivity
+import com.google.android.gms.ads.MobileAds
 import com.google.firebase.crashlytics.ktx.crashlytics
 import com.google.firebase.ktx.Firebase
 import com.szr.co.smart.qr.activity.ScanActivity
@@ -18,6 +14,7 @@ import com.szr.co.smart.qr.bill.position.ViPositionHelper
 import com.szr.co.smart.qr.bill.type.ViBillType
 import com.szr.co.smart.qr.conf.FireRemoteConf
 import com.szr.co.smart.qr.data.DataSetting
+import com.szr.co.smart.qr.event.AppEvent
 import com.szr.co.smart.qr.logic.PushTokenLogic
 import com.szr.co.smart.qr.manager.UserManager
 import com.szr.co.smart.qr.model.checkAppSwitchType
@@ -46,13 +43,14 @@ class SmartApp : Application(), FireRemoteConf.Callback {
         super.onCreate()
         instance = this
         DataSetting.instance.initialize(this)
+        MobileAds.initialize(this)
         PushTokenLogic.uploadToken()
         FireRemoteConf.instance.initConfig(this)
         registerActivityLifecycleCallbacks(mAppActivityCycle)
         UserManager.instance.mThirdUserCheck.initInstallReferrer(this)
         UserManager.instance.mThirdUserCheck.initFbAndSe()
 
-        initFlipper()
+        AppEvent.event("application_start")
     }
 
     override fun onConfigUpdate() {
@@ -108,7 +106,8 @@ class SmartApp : Application(), FireRemoteConf.Callback {
     }
 
     private fun isStartHot(activity: Activity): Boolean {
-        val activityMeet = activity !is StartActivity && activity !is  ScanActivity  && !hasAdActivity()
+        val activityMeet =
+            activity !is StartActivity && activity !is ScanActivity && !hasAdActivity()
         if (!activityMeet) return false
         val state = FireRemoteConf.instance.hotStartConf
         return checkAppSwitchType(state)
@@ -124,10 +123,10 @@ class SmartApp : Application(), FireRemoteConf.Callback {
     }
 
     private fun initFlipper() {
-        SoLoader.init(this, false)
-        val client = AndroidFlipperClient.getInstance(this)
-        client.addPlugin(DatabasesFlipperPlugin(this))
-        client.addPlugin(InspectorFlipperPlugin(this, DescriptorMapping.withDefaults()))
-        client.start()
+//        SoLoader.init(this, false)
+//        val client = AndroidFlipperClient.getInstance(this)
+//        client.addPlugin(DatabasesFlipperPlugin(this))
+//        client.addPlugin(InspectorFlipperPlugin(this, DescriptorMapping.withDefaults()))
+//        client.start()
     }
 }

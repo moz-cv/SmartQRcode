@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name" translatable="false">Smart QRcode</string>
+    <string name="app_name" translatable="false">Smart QRcode &amp; Barcode</string>
     <string name="qr_code">QR code</string>
     <string name="bar_code">Barcode </string>
     <string name="popular_templates">Popular Templates</string>
