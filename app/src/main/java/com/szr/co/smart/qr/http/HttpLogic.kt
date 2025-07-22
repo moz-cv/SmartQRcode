@@ -51,7 +51,6 @@ object HttpLogic {
         }
 
     fun startParseVideoByUrl(url: String?): VideoModel? {
-        Log.d("TAG_SD","$url")
         try {
             if (url.isNullOrEmpty()) {
                 return null
