@@ -64,7 +64,7 @@ class EditQRStyleActivity : BaseActivity<ActivityEditQrstyleBinding>() {
         mAdapter = MainQrSrcAdapter(QrResLogic.listBgImages) { id ->
 
             if (data != null) {
-                data.bgId = QrResLogic.listBgImages[id]
+                data.bgId = id
                 val intent = Intent()
                 intent.putExtra("data", data)
                 setResult(RESULT_OK, intent)

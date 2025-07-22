@@ -125,4 +125,9 @@ dependencies {
 
     //gson
     implementation("com.google.code.gson:gson:2.11.0")
+
+    debugImplementation("com.facebook.flipper:flipper:0.233.0")
+    debugImplementation("com.facebook.soloader:soloader:0.10.5")
+
+    releaseImplementation("com.facebook.flipper:flipper-noop:0.233.0")
 }

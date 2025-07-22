@@ -261,10 +261,7 @@ object QrUtils {
     }
 
     fun isWhatsApp(content: String): Boolean {
-        return content.startsWith("https://wa.me/", ignoreCase = true) ||
-                content.startsWith("wa.me/", ignoreCase = true) ||
-                content.startsWith("https://api.whatsapp.com/", ignoreCase = true) ||
-                content.startsWith("api.whatsapp.com/", ignoreCase = true)
+        return content.startsWith("https://wa.me/", ignoreCase = true)
     }
 
     fun isInstagram(content: String): Boolean {

@@ -24,7 +24,9 @@ import com.szr.co.smart.qr.dialog.HistoryMenuDialog
 import com.szr.co.smart.qr.dialog.PostBottomDialog
 import com.szr.co.smart.qr.dialog.PushCodeDialog
 import com.szr.co.smart.qr.dialog.WaitingDialog
+import com.szr.co.smart.qr.event.EventLanguageSwitch
 import com.szr.co.smart.qr.logic.QrResLogic
+import com.szr.co.smart.qr.manager.UserManager
 import com.szr.co.smart.qr.utils.Utils
 import com.szr.co.smart.qr.utils.dpToPx
 import com.szr.co.smart.qr.utils.permission.PermissionCallback
@@ -35,6 +37,9 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
+import org.greenrobot.eventbus.EventBus
+import org.greenrobot.eventbus.Subscribe
+import org.greenrobot.eventbus.ThreadMode
 
 class MainActivity : BaseAdActivity<ActivityMainBinding>() {
 
@@ -71,9 +76,14 @@ class MainActivity : BaseAdActivity<ActivityMainBinding>() {
         return true
     }
 
+    override fun onDestroy() {
+        super.onDestroy()
+        EventBus.getDefault().unregister(this)
+    }
+
     override fun initOnCreate() {
         super.initOnCreate()
-
+        EventBus.getDefault().register(this)
         mBinding.recycleData.layoutManager = GridLayoutManager(this, 3)
         mAdapter = MainQrSrcAdapter(QrResLogic.listBgImages) {
             billHelper.showAd {
@@ -251,6 +261,24 @@ class MainActivity : BaseAdActivity<ActivityMainBinding>() {
         }
 
     private fun checkPostPerNexTask() {
-        mMainVM.checkPushVideoParse()
+        val firstGuide = userFirstParsing()
+        if (firstGuide) {
+            mMainVM.checkPushVideoParseGuide()
+        } else {
+            mMainVM.checkPushVideoParse()
+        }
+    }
+
+    private fun userFirstParsing(): Boolean {
+        if (DataSetting.instance.firstGuideQr) return false
+        DataSetting.instance.firstGuideQr = true
+        return UserManager.instance.buyUser()
+    }
+
+
+    @Subscribe(threadMode = ThreadMode.MAIN, sticky = true)
+    fun onAppLanguageSwitch(event: EventLanguageSwitch) {
+        EventBus.getDefault().removeStickyEvent(event)
+        recreate()
     }
 }

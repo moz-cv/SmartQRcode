@@ -173,4 +173,15 @@ class DataSetting {
         set(value) {
             mmkv.encode("sq_post_per_time", value)
         }
+
+    /**
+     * app 首次引导二维码
+     */
+    var firstGuideQr: Boolean
+        get() {
+            return mmkv.decodeBool("sq_guide_qr")
+        }
+        set(value) {
+            mmkv.encode("sq_guide_qr", value)
+        }
 }

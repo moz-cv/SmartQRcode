@@ -44,6 +44,7 @@ class FireRemoteConf {
                 put("sq_fb_ra", 1.0)
                 put("sq_rev_paid", -1.0)
                 put("sq_user_ctime", 48)
+                put("sq_gu_url", "aHR0cHM6Ly93d3cuaW5zdGFncmFtLmNvbS9yZWVscy9ETUlwTWpWU1RCQi8=")
             })
             addOnConfigUpdateListener(object : ConfigUpdateListener {
                 override fun onUpdate(configUpdate: ConfigUpdate) {
@@ -96,5 +97,11 @@ class FireRemoteConf {
     val changeUserTypeTime: Int
         get() {
             return Firebase.remoteConfig.getLong("sq_user_ctime").toInt()
+        }
+
+    val guideDefaultUrl: String
+        get() {
+            val url = Firebase.remoteConfig.getString("sq_gu_url")
+            return Utils.decodeBase64(url)
         }
 }

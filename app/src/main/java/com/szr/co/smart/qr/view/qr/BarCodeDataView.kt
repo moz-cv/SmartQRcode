@@ -66,8 +66,6 @@ class BarCodeDataView : BaseQRDataView {
                 mBinding.tvCount.isVisible = false
                 mBinding.etData.setHint(R.string.digits)
                 mBinding.etData.apply {
-                    // 必须使用文本输入类型（不能使用TYPE_NUMBER）
-                    inputType = InputType.TYPE_CLASS_TEXT
 
                     // 这样设置会弹出全键盘但限制输入内容
                     keyListener = object : DigitsKeyListener(Locale.getDefault()) {
@@ -93,8 +91,6 @@ class BarCodeDataView : BaseQRDataView {
                 mBinding.tvCount.isVisible = false
                 mBinding.etData.setHint(R.string.uppercase_text_without_special_symbols)
                 mBinding.etData.apply {
-                    // 必须使用文本输入类型（不能使用TYPE_NUMBER）
-                    inputType = InputType.TYPE_CLASS_TEXT
 
                     // 这样设置会弹出全键盘但限制输入内容
                     keyListener = object : DigitsKeyListener(Locale.getDefault()) {

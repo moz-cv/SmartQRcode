@@ -156,7 +156,7 @@ class FireMessagePushLogic {
         builder.setGroupSummary(false)
         builder.setGroup(channelId)
         builder.setAutoCancel(true)
-        builder.setSmallIcon(R.drawable.scan)
+        builder.setSmallIcon(R.mipmap.ic_launcher)
         builder.priority = NotificationManager.IMPORTANCE_HIGH
 
         remoteView.setTextViewText(R.id.btn_action, action)

@@ -37,7 +37,7 @@ class MainQrSrcAdapter(val list: List<Int>, val itemClick: (Int) -> Unit) :
                 .into(holder.binding.icImage)
         }
         holder.binding.root.setOnClickListener {
-            itemClick.invoke(position)
+            itemClick.invoke(id)
         }
     }
 

@@ -40,6 +40,8 @@
             android:background="@android:color/transparent"
             android:hint="@string/please_enter"
             android:padding="0dp"
+            android:maxLines="1"
+            android:lines="1"
             android:textColor="#222222"
             android:textColorHint="#D3D3D3"
             android:textSize="16sp" />

@@ -67,7 +67,7 @@
     <string name="wifi_invalidate">Wi-Fi name cannot be empty</string>
     <string name="url_not_empty">URL cannot be empty</string>
     <string name="url_invalidate">Invalid URL format</string>
-    <string name="whatsapp_invalidate">Invalid WhatsApp link format</string>
+    <string name="whatsapp_invalidate">Invalid WhatsApp phone number</string>
     <string name="x_invalidate">Invalid X link format</string>
     <string name="ins_invalidate">Invalid Instagram link format</string>
     <string name="facebook_invalidate">Invalid Facebook link format</string>
@@ -96,4 +96,6 @@
     <string name="parsing_qr_code">Parsing QR code…</string>
     <string name="post_content">Afraid of missing a video? Turn on notifications and never miss any exciting videos.</string>
     <string name="allow">Allow</string>
+    <string name="please_url">Please enter the link</string>
+    <string name="please_phone_number">Please enter the phone number</string>
 </resources>

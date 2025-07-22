@@ -153,8 +153,9 @@ class HistoryCodeActivity : BaseAdActivity<ActivityHistoryCodeBinding>() {
                     lifecycleScope.launch(Dispatchers.IO) {
                         val list = mAdapter.selectIdList.values
                         AppDB.db.qrDataDao().deleteList(list.toList())
+
+                        withContext(Dispatchers.Main) { changeSelect(false) }
                     }
-                    changeSelect(false)
                 }
                 .setNegativeButton(getString(R.string.cancel), null)
                 .show()

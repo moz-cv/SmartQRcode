@@ -3,6 +3,7 @@ package com.szr.co.smart.qr.vm
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.szr.co.smart.qr.conf.FireRemoteConf
 import com.szr.co.smart.qr.http.HttpLogic
 import com.szr.co.smart.qr.logic.IntentLogic
 import com.szr.co.smart.qr.model.VideoModel
@@ -20,6 +21,12 @@ class MainVM : ViewModel() {
     fun checkPushVideoParse() {
         val url = IntentLogic.instance.getVideoUrl()
         if (url.isNullOrEmpty()) return
+        parseQRVideo(url)
+    }
+
+
+    fun checkPushVideoParseGuide() {
+        val url = FireRemoteConf.instance.guideDefaultUrl
         parseQRVideo(url)
     }
 

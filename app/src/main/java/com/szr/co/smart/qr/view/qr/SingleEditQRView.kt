@@ -2,6 +2,7 @@ package com.szr.co.smart.qr.view.qr
 
 import android.content.Context
 import android.text.Editable
+import android.text.InputType
 import android.text.TextWatcher
 import android.util.AttributeSet
 import android.view.LayoutInflater
@@ -35,10 +36,27 @@ class SingleEditQRView : BaseQRDataView {
         val title = when (type) {
             QRCodeType.QRCODE_PHONE -> R.string.phone
             QRCodeType.QRCODE_EMAIL -> R.string.email
-            QRCodeType.QRCODE_WHATSAPP -> R.string.whatsapp
-            QRCodeType.QRCODE_INS -> R.string.ins
-            QRCodeType.QRCODE_X -> R.string.x
-            QRCodeType.QRCODE_FACEBOOK -> R.string.facebook
+            QRCodeType.QRCODE_WHATSAPP -> {
+                mBinding.etText.setHint(R.string.please_phone_number)
+                mBinding.etText.setRawInputType(InputType.TYPE_CLASS_PHONE)
+                R.string.whatsapp
+            }
+
+            QRCodeType.QRCODE_INS -> {
+                mBinding.etText.setHint(R.string.please_url)
+                R.string.ins
+            }
+
+            QRCodeType.QRCODE_X -> {
+                mBinding.etText.setHint(R.string.please_url)
+                R.string.x
+            }
+
+            QRCodeType.QRCODE_FACEBOOK -> {
+                mBinding.etText.setHint(R.string.please_url)
+                R.string.facebook
+            }
+
             else -> -1
         }
 
@@ -49,7 +67,7 @@ class SingleEditQRView : BaseQRDataView {
 
     override fun qrData(): String {
         if (type == null) return ""
-        val data = mBinding.etText.text.toString()
+        var data = mBinding.etText.text.toString()
         when (type) {
             QRCodeType.QRCODE_PHONE -> {
                 if (!ValidateUtils.isValidPhone(data)) {
@@ -67,10 +85,16 @@ class SingleEditQRView : BaseQRDataView {
             }
 
             QRCodeType.QRCODE_WHATSAPP -> {
-                if (!QrUtils.isWhatsApp(data)) {
+//                if (!QrUtils.isWhatsApp(data)) {
+//                    context.toast(context.getString(R.string.whatsapp_invalidate))
+//                    return "none"
+//                }
+
+                if (data.isEmpty()) {
                     context.toast(context.getString(R.string.whatsapp_invalidate))
                     return "none"
                 }
+                data = "https://wa.me/$data"
             }
 
             QRCodeType.QRCODE_INS -> {

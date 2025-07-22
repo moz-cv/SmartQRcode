@@ -13,6 +13,7 @@ import com.szr.co.smart.qr.activity.base.BaseAdActivity
 import com.szr.co.smart.qr.bill.ViBillHelper
 import com.szr.co.smart.qr.bill.position.ViBillPosition
 import com.szr.co.smart.qr.databinding.ActivityGenResultBinding
+import com.szr.co.smart.qr.model.QRCodeType
 import com.szr.co.smart.qr.room.AppDB
 import com.szr.co.smart.qr.room.model.QRDataModel
 import com.szr.co.smart.qr.utils.QrUtils
@@ -40,7 +41,10 @@ class GenResultActivity : BaseAdActivity<ActivityGenResultBinding>() {
         ViBillHelper(
             this,
             ViBillPosition.POS_QR_CLICK_SAVE_INTERS,
-            mutableListOf(ViBillPosition.POS_QR_RESULT_NATIVE, ViBillPosition.POS_QR_CLICK_SAVE_INTERS),
+            mutableListOf(
+                ViBillPosition.POS_QR_RESULT_NATIVE,
+                ViBillPosition.POS_QR_CLICK_SAVE_INTERS
+            ),
             ViBillPosition.POS_QR_RESULT_NATIVE,
             mBinding.layoutNativeAd
         )

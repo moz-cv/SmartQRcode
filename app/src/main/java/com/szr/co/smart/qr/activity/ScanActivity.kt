@@ -141,7 +141,6 @@ class ScanActivity : BaseAdActivity<ActivityScanBinding>() {
         billHelper.showAd {
             lifecycleScope.launch(Dispatchers.IO) {
                 val data = createQRData(type, content)
-                AppDB.db.qrDataDao().insert(data)
                 ScanResultActivity.toResult(this@ScanActivity, data)
                 withContext(Dispatchers.Main) { finish() }
 
