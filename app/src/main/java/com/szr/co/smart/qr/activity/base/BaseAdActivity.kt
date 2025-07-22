@@ -1,6 +1,7 @@
 package com.szr.co.smart.qr.activity.base
 
 import android.os.Bundle
+import android.util.Log
 import androidx.lifecycle.lifecycleScope
 import androidx.viewbinding.ViewBinding
 import com.szr.co.smart.qr.bill.ViBillHelper
@@ -53,6 +54,7 @@ abstract class BaseAdActivity<T : ViewBinding> : BaseActivity<T>() {
     }
 
     private var mLoadAdDialog: AdWaitingDialog? = null
+    private var delayFlag = false
     fun showAdDelayLoad(dismiss: () -> Unit) {
         val position = billHelper.showIntersPos
         if (position == null) {
@@ -63,18 +65,20 @@ abstract class BaseAdActivity<T : ViewBinding> : BaseActivity<T>() {
         val cacheAd = ViPositionHelper.getBill(position)
 
         if (cacheAd == null) {
+            delayFlag = true
             mLoadAdDialog = AdWaitingDialog(this)
             mLoadAdDialog?.show()
             loadAdDelayJob = lifecycleScope.launch {
                 withContext(Dispatchers.Default) { delay(5000) }
+                if (!delayFlag) return@launch
+                delayFlag = false
                 mLoadAdDialog?.dismiss()
                 mLoadAdDialog = null
                 billHelper.showAd(ViPositionHelper.getBill(position), dismiss)
             }
-            loadAdDelayJob = lifecycleScope.launch {
-
-            }
             billHelper.loadAd(position) {
+                if (!delayFlag) return@loadAd
+                delayFlag = false
                 loadAdDelayJob?.cancel()
                 loadAdDelayJob = null
                 if (mLoadAdDialog == null) return@loadAd
