@@ -14,6 +14,7 @@ import com.szr.co.smart.qr.bill.position.ViPositionHelper
 import com.szr.co.smart.qr.bill.type.ViBillType
 import com.szr.co.smart.qr.conf.FireRemoteConf
 import com.szr.co.smart.qr.data.DataSetting
+import com.szr.co.smart.qr.event.AppEvent
 import com.szr.co.smart.qr.logic.PushTokenLogic
 import com.szr.co.smart.qr.manager.UserManager
 import com.szr.co.smart.qr.model.checkAppSwitchType
@@ -48,6 +49,8 @@ class SmartApp : Application(), FireRemoteConf.Callback {
         registerActivityLifecycleCallbacks(mAppActivityCycle)
         UserManager.instance.mThirdUserCheck.initInstallReferrer(this)
         UserManager.instance.mThirdUserCheck.initFbAndSe()
+
+        AppEvent.event("application_start")
     }
 
     override fun onConfigUpdate() {
@@ -103,7 +106,8 @@ class SmartApp : Application(), FireRemoteConf.Callback {
     }
 
     private fun isStartHot(activity: Activity): Boolean {
-        val activityMeet = activity !is StartActivity && activity !is  ScanActivity  && !hasAdActivity()
+        val activityMeet =
+            activity !is StartActivity && activity !is ScanActivity && !hasAdActivity()
         if (!activityMeet) return false
         val state = FireRemoteConf.instance.hotStartConf
         return checkAppSwitchType(state)
