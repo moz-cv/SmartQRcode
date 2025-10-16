@@ -25,8 +25,8 @@ android {
         applicationId = ""
         minSdk = 26
         targetSdk = 35
-        versionCode = 2
-        versionName = "1.0.1"
+        versionCode = 3
+        versionName = "1.0.2"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
@@ -134,13 +134,13 @@ dependencies {
     //okhttp
     implementation("com.squareup.okhttp3:okhttp:4.12.0")
     implementation("com.squareup.okhttp3:logging-interceptor:4.12.0")
-    implementation("com.tencent:mmkv:1.3.4")
+    implementation("com.tencent:mmkv:1.3.14")
 
     //gson
     implementation("com.google.code.gson:gson:2.11.0")
 
-    debugImplementation("com.facebook.flipper:flipper:0.233.0")
-    debugImplementation("com.facebook.soloader:soloader:0.10.5")
-
-    releaseImplementation("com.facebook.flipper:flipper-noop:0.233.0")
+//    debugImplementation("com.facebook.flipper:flipper:0.233.0")
+//    debugImplementation("com.facebook.soloader:soloader:0.10.5")
+//
+//    releaseImplementation("com.facebook.flipper:flipper-noop:0.233.0")
 }
