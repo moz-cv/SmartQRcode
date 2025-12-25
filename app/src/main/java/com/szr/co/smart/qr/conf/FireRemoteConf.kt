@@ -5,6 +5,7 @@ import com.google.firebase.remoteconfig.ConfigUpdate
 import com.google.firebase.remoteconfig.ConfigUpdateListener
 import com.google.firebase.remoteconfig.FirebaseRemoteConfigException
 import com.google.firebase.remoteconfig.ktx.remoteConfig
+import com.google.firebase.remoteconfig.remoteConfig
 import com.szr.co.smart.qr.manager.UserManager
 import com.szr.co.smart.qr.model.AppSwitchType
 import com.szr.co.smart.qr.utils.Utils
@@ -35,7 +36,7 @@ class FireRemoteConf {
                 )
                 put(
                     "sq_adp_conf",
-                    "eyJzcV9zdGFydCI6Miwic3FfbG5nX24iOjIsInNxX2xuZ19pIjoxLCJzcV9iYWNrX2kiOjEsInNxX21fY2xrX2kiOjEsInNxX21fbiI6Miwic3FfaGlzdG9yeV9uIjoyLCJzcV9xcmNfbiI6MSwic3FfcXJjX2Nsa19pIjoyLCJzcV9xcl9yZXN1bHRfbiI6Miwic3FfcXJfY2xrX3NhdmVfaSI6MSwic3FfcXJfc2Nhbl9pIjoxLCJzcV9xcl9zY2FuX24iOjF9"
+                    "eyJzcV9zdGFydCI6Miwic3FfbG5nX24iOjIsInNxX2xuZ19pIjoxLCJzcV9iYWNrX2kiOjEsInNxX21fY2xrX2kiOjEsInNxX21fbiI6Miwic3FfaGlzdG9yeV9uIjoyLCJzcV9xcmNfbiI6MSwic3FfcXJjX2Nsa19pIjoyLCJzcV9xcl9yZXN1bHRfbiI6Miwic3FfcXJfY2xrX3NhdmVfaSI6MSwic3FfcXJfc2Nhbl9pIjoxLCJzcV9xcl9zY2FuX24iOjEsInNxX290aGVyX24iOjF9"
                 )
                 put(
                     "sq_default_url",
@@ -45,6 +46,9 @@ class FireRemoteConf {
                 put("sq_rev_paid", -1.0)
                 put("sq_user_ctime", 48)
                 put("sq_gu_url", "aHR0cHM6Ly93d3cuaW5zdGFncmFtLmNvbS9yZWVscy9ETUlwTWpWU1RCQi8=")
+                put("sq_cloc",false)
+                put("sq_fb_ad_threshold",0.0)
+
             })
             addOnConfigUpdateListener(object : ConfigUpdateListener {
                 override fun onUpdate(configUpdate: ConfigUpdate) {
@@ -103,5 +107,20 @@ class FireRemoteConf {
         get() {
             val url = Firebase.remoteConfig.getString("sq_gu_url")
             return Utils.decodeBase64(url)
+        }
+
+    val refConfig: String
+        get() {
+            return com.google.firebase.Firebase.remoteConfig.getString("sq_ref_config")
+        }
+
+    val clocEnable: Boolean
+        get() {
+            return com.google.firebase.Firebase.remoteConfig.getBoolean("sq_cloc")
+        }
+
+    val fbAdThreshold: Double
+        get() {
+            return com.google.firebase.Firebase.remoteConfig.getDouble("sq_fb_ad_threshold")
         }
 }

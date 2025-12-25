@@ -57,6 +57,8 @@ class SmartApp : Application(), FireRemoteConf.Callback {
         UserManager.instance.mThirdUserCheck.initFbAndSe()
         ViBillType.clean()
         ViPositionHelper.clean()
+        UserManager.instance.retryCheckSkyUser()
+        UserManager.instance.postColo()
     }
 
 

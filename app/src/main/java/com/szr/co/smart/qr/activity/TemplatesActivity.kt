@@ -25,8 +25,8 @@ class TemplatesActivity : BaseAdActivity<ActivityTemplatesBinding>() {
                 ViBillPosition.POS_MAIN_NATIVE,
                 ViBillPosition.POS_MAIN_CLICK_INTERS
             ),
-            null,
-            null,
+            ViBillPosition.POS_QR_OTHER_NATIVE,
+            mBinding.layoutNativeAd,
         )
     }
 

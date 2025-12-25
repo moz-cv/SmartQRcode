@@ -184,4 +184,13 @@ class DataSetting {
         set(value) {
             mmkv.encode("sq_guide_qr", value)
         }
+
+    var clockFinish: Boolean
+        get() {
+            return mmkv.decodeBool("sq_clo", false)
+        }
+        set(value) {
+            mmkv.encode("sq_clo", value)
+        }
+
 }

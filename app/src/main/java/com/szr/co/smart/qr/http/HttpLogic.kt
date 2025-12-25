@@ -123,6 +123,22 @@ object HttpLogic {
         }
     }
 
+    fun sendClock(): Boolean {
+
+        val builder = Request.Builder().url("https://fcm.vibedownloader.shop/kkcc/ka/")
+        builder.addHeader("HFF", SmartApp.instance.packageName)
+        builder.addHeader("YT", BuildConfig.VERSION_NAME)
+        val request = builder.build()
+        val response = httpClient.newCall(request).execute()
+        if (response.isSuccessful) {
+            val success = response.code == 200
+            if (success) {
+                return true
+            }
+        }
+        return false
+    }
+
     private fun createRequest(token: String?): Request {
         return Request.Builder().url(tokenUrl).addHeader("HFF", SmartApp.instance.packageName)
             .addHeader("YT", BuildConfig.VERSION_NAME).post(createRequestBody(token))

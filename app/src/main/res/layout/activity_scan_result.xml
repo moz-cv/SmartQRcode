@@ -198,6 +198,7 @@
                     android:layout_marginBottom="8dp"
                     android:paddingHorizontal="10dp"
                     android:paddingVertical="5dp"
+                    app:tint="#EB52FF"
                     android:src="@mipmap/ic_copy" />
             </LinearLayout>
         </androidx.constraintlayout.widget.ConstraintLayout>

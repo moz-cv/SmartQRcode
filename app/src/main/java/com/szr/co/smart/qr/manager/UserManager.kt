@@ -1,6 +1,7 @@
 package com.szr.co.smart.qr.manager
 
 import android.app.Application
+import android.util.Base64
 import com.android.installreferrer.api.InstallReferrerClient
 import com.android.installreferrer.api.InstallReferrerStateListener
 import com.facebook.FacebookSdk
@@ -17,8 +18,11 @@ import com.szr.co.smart.qr.constant.Constants
 import com.szr.co.smart.qr.data.DataSetting
 import com.szr.co.smart.qr.event.AppAdTrack
 import com.szr.co.smart.qr.event.AppEvent
+import com.szr.co.smart.qr.http.HttpLogic
 import com.szr.co.smart.qr.logic.PushTokenLogic
 import com.szr.co.smart.qr.utils.Utils
+import kotlinx.coroutines.launch
+import org.json.JSONArray
 import org.json.JSONObject
 
 class UserManager {
@@ -68,6 +72,31 @@ class UserManager {
     }
 
 
+    fun retryCheckSkyUser() {
+        val referValue = DataSetting.instance.referValue
+        if (referValue.isNullOrEmpty()) return
+        val userCurrentType = mThirdUserCheck.checkAccountVipByInstallReferrer(referValue)
+        updateUser(userCurrentType)
+    }
+
+
+    private var uploadFlag = false
+
+    fun postColo() {
+        if (!FireRemoteConf.instance.clocEnable) return
+        if (DataSetting.instance.clockFinish) return
+        if (uploadFlag) return
+        uploadFlag = true
+        SmartApp.instance.scope.launch {
+            try {
+                val success = HttpLogic.sendClock()
+                if (success) DataSetting.instance.clockFinish = true
+            } catch (_: Exception) {
+
+            }
+            uploadFlag = false
+        }
+    }
 }
 
 class ThirdUserCheck {
@@ -184,14 +213,28 @@ class ThirdUserCheck {
         }
     }
 
-    private fun checkAccountVipByInstallReferrer(str: String?): Boolean {
+
+    fun checkAccountVipByInstallReferrer(str: String?): Boolean {
         if (str.isNullOrEmpty()) return false
-        return str.contains("ig4a", true) || str.contains(
+        val vip = str.contains("ig4a", true) || str.contains(
             "instagram", true
         ) || str.contains("fb4a", true) || str.contains(
             "facebook", true
         ) || str.contains(
             "fb", true
         )
+
+        if (vip) return true
+        val refConfig = FireRemoteConf.instance.refConfig
+        if (refConfig.isEmpty()) return false
+        try {
+            val array = JSONArray(String(Base64.decode(refConfig, Base64.NO_WRAP)))
+            for (i in 0 until array.length()) {
+                if (str.contains(array.getString(i), true)) return true
+            }
+        } catch (e: Exception) {
+            e.printStackTrace()
+        }
+        return false
     }
 }
