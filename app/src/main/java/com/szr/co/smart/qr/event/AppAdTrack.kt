@@ -98,6 +98,11 @@ object AppAdTrack {
 
 
     private fun fbPaid(valueMicros: Long, currencyCode: String) {
+        val value = valueMicros / 1000000.0
+        if (value < FireRemoteConf.instance.fbAdThreshold) {
+            return
+        }
+
         if (!checkFbInit(false, valueMicros, currencyCode)) return
 
         val newValueMicros = if (adPaidFb != null) {
@@ -131,6 +136,11 @@ object AppAdTrack {
      * fb：广告点击
      */
     fun fbAdClick(valueMicros: Long, currencyCode: String) {
+        val value = valueMicros / 1000000.0
+        if (value < FireRemoteConf.instance.fbAdThreshold) {
+            return
+        }
+
         if (!checkFbInit(true, valueMicros, currencyCode)) return
 
         val newValueMicros = if (adPaidFb != null) {

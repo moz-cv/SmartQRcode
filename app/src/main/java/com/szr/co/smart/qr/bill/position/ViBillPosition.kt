@@ -23,4 +23,6 @@ enum class ViBillPosition(
 
     POS_QR_PARSE_RESULT_INTERS("sq_qr_scan_i", ViBillType.TYPE_INTERSTITIAL),
     POS_QR_PARSE_RESULT_NATIVE("sq_qr_scan_n", ViBillType.TYPE_NATIVE),
+
+    POS_QR_OTHER_NATIVE("sq_other_n", ViBillType.TYPE_NATIVE),
 }

@@ -49,7 +49,7 @@
             android:minWidth="44dp"
             android:paddingHorizontal="8dp"
             android:text="@string/edit"
-            android:textColor="#3974F4"
+            android:textColor="#EA4BFF"
             android:textSize="18sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
