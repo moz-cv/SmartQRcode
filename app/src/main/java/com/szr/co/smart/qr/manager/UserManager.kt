@@ -105,10 +105,10 @@ class ThirdUserCheck {
         val fbInfo = getFbInfo()
         if (fbInfo == null) return
         initFacebook(fbInfo.first, fbInfo.second)
-        initSolarEngine(SmartApp.instance, fbInfo.first)
+        initSolarEngine(SmartApp.instance, fbInfo.first, fbInfo.third)
     }
 
-    private fun getFbInfo(): Pair<String, String>? {
+    private fun getFbInfo(): Triple<String, String, String>? {
         val fbInfo = FireRemoteConf.instance.fbConf
         if (fbInfo.isEmpty()) return null
         val info = Utils.decodeBase64(fbInfo)
@@ -116,7 +116,8 @@ class ThirdUserCheck {
         val json = JSONObject(info)
         val fbId = json.getString("sq_fb_id")
         val fbToken = json.getString("sq_fb_token")
-        return Pair(fbId, fbToken)
+        val seId = json.optString("sq_se_id")
+        return Triple(fbId, fbToken, seId)
     }
 
     private fun initFacebook(fbId: String, fbToken: String) {
@@ -177,9 +178,13 @@ class ThirdUserCheck {
 
     }
 
-    private fun initSolarEngine(application: Application, fbId: String) {
+    private fun initSolarEngine(application: Application, fbId: String, seId: String) {
+        if (seId.isEmpty()) {
+            AppEvent.event("sq_se_id_empty")
+            return
+        }
         AppEvent.event("sq_se_start")
-        SolarEngineManager.getInstance().preInit(application, Constants.SE_APP_ID)
+        SolarEngineManager.getInstance().preInit(application, seId)
         val builder = SolarEngineConfig.Builder()
         builder.setFbAppID(fbId)
         val config = builder.build()
@@ -202,7 +207,7 @@ class ThirdUserCheck {
             }
         })
         SolarEngineManager.getInstance().initialize(
-            application, Constants.SE_APP_ID, config
+            application, seId, config
         ) { code ->
             if (code == 0) {
                 //初始化成功
